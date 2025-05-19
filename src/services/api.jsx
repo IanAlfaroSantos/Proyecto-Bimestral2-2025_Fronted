@@ -26,5 +26,5 @@ export const login = async (data) => {
 }
 
 export const register = async (data) => {
-    return await apiClient.post('user/register', data);
+    return await apiClient.post('users/register', data);
 }

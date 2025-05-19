@@ -1,0 +1,95 @@
+.dashboard-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.nav-container {
+    background-color: #000000;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgb(41, 37, 37);
+    box-shadow: 0 0 10px 5px rgb(255, 255, 255);
+    box-sizing: border-box;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-container {
+    width: 45px;
+    margin-left: 10px;
+}
+
+.nav-button {
+    margin-left: 110px;
+    margin-right: 20px;
+    color: #d2d2dd;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    opacity: 0.7;
+}
+
+.nav-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dashboard-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #444;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper .input-icon {
+    position: absolute;
+    right: 12px;
+    color: #0099ff;
+    font-size: 30px;
+    transition: color 0.3s ease;
+    transform: translate(2100%, 10%);
+    position: absolute;
+    left: 12px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #ddd;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.input-wrapper input:focus {
+    background-color: #3a3a3a;
+}
+
+.error-message {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #ff4f4f;
+}
