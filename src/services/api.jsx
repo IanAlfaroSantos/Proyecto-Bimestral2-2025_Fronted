@@ -28,3 +28,16 @@ export const login = async (data) => {
 export const register = async (data) => {
     return await apiClient.post('users/register', data);
 }
+
+export const getUserById = async () => {
+    const response = await apiClient.get('users/search');
+    return response.data;
+}
+
+export const updateUser = async (data) => {
+    return await apiClient.put('users/', data);
+}
+
+export const deleteUser = async (data) => {
+    return await apiClient.delete('users/', data);
+}
