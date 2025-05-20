@@ -4,5 +4,6 @@ export * from './validateUsername';
 export * from './validateEmail';
 export * from './validatePhone';
 export * from './validatePassword';
+export * from './validatePasswordUpdate';
 export * from './validateConfirPassword';
 export * from './validateUsernameOrEmail';

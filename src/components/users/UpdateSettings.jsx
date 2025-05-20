@@ -4,7 +4,7 @@ import {
     validateSurname,
     validateUsername,
     validatePhone,
-    validatePassword
+    validatePasswordUpdate
 } from "../../shared/validators";
 import { useUserSettings } from "../../shared/hooks";
 import { Input } from "../Input";
@@ -41,13 +41,12 @@ const inputs = [
     {
         field: 'currentPassword',
         label: 'Current Password',
-        validationMessage: validatePassword,
         type: 'password'
     },
     {
         field: 'password',
         label: 'Password',
-        validationMessage: validatePassword,
+        validationMessage: validatePasswordUpdate,
         type: 'password'
     }
 ]
@@ -60,31 +59,37 @@ export const UserSettings = () => {
         name: {
             isValid: true,
             showError: false,
+            validationMessage: '',
             value: ''
         },
         surname: {
             isValid: true,
             showError: false,
+            validationMessage: '',
             value: ''
         },
         username: {
             isValid: true,
             showError: false,
+            validationMessage: '',
             value: ''
         },
         phone: {
             isValid: true,
             showError: false,
+            validationMessage: '',
             value: ''
         },
         currentPassword: {
             isValid: true,
             showError: false,
+            validationMessage: '',
             value: ''
         },
         password: {
             isValid: true,
             showError: false,
+            validationMessage: '',
             value: ''
         }
     })
@@ -113,12 +118,12 @@ export const UserSettings = () => {
                     value: userSettings.phone
                 },
                 currentPassword: {
-                    isValid: validatePassword(userSettings.currentPassword || '').isValid,
+                    isValid: validatePasswordUpdate(userSettings.currentPassword || '').isValid,
                     showError: false,
                     value: ''
                 },
                 password: {
-                    isValid: validatePassword(userSettings.password || '').isValid,
+                    isValid: validatePasswordUpdate(userSettings.password || '').isValid,
                     showError: false,
                     value: ''
                 }
@@ -184,7 +189,6 @@ export const UserSettings = () => {
             <img src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" className="user-image" alt="User Icon" />
             <form className="auth-form user-settings-form" autoComplete="on">
                 <h2>Update Your Profile</h2>
-                <h6 className="h6-container">Nota: si no quiere actualizar la contraseña, ingrese su contraseña actual y en la nueva ingrese la misma que la actual</h6>
                 <br />
                 <Input
                     field='name'

@@ -193,10 +193,10 @@
 .user-settings-form .input-icon {
     font-size: 20px;
     position: absolute;
-    top: 8px;
+    top: 13px;
     right: 20px;
     cursor: pointer;
-    color: rgb(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .user-settings-form .input-icon:hover {
