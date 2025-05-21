@@ -55,7 +55,7 @@ export const useUserSettings = () => {
     const saveSettings = async (user) => {
 
         const confirm = await Swal.fire({
-            icon: 'question',
+            icon: 'warning',
             title: '¿Está seguro?',
             text: '¿Desea actualizar su información?',
             showCancelButton: true,

@@ -39,5 +39,5 @@ export const updateUser = async (data) => {
 }
 
 export const deleteUser = async (data) => {
-    return await apiClient.delete('users/', data);
+    return await apiClient.delete('users/', { data: data });
 }
