@@ -10,9 +10,18 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Swal from "sweetalert2";
+import { Navbar } from "../../components/navbars/Navbar";
+import {
+    validateName,
+    validateDirection,
+    validateCategorie,
+    validateComodidades
+} from "../../shared/validators";
 
 import { useHotel } from "../../shared/hooks";
 import PrivateRoutes from "../PrivateRoutes";
+import './hotel.css';
+
 const HotelesPage = () => {
     const {
         saveHotel,
@@ -80,6 +89,45 @@ const HotelesPage = () => {
             console.error("No hay ID en editData");
             return;
         }
+
+        let result = { isValid: false, message: '' };
+
+        if (!validateName.isValid) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Faltan campos obligatorios',
+                text: 'El nombre requerido y debe contener entre 3 y 25 caracteres y no debe contener espacios',
+            });
+            return;
+        }
+
+        if (!validateDirection.isValid) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Faltan campos obligatorios',
+                text: 'La dirección es requerida y debe contener máximo 250 caracteres',
+            });
+            return;
+        }
+
+        if (!validateCategorie.isValid) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Faltan campos obligatorios',
+                text: "El valor de la categoría debe ser uno de los siguientes: '1 estrella', '2 estrellas', '3 estrellas', '4 estrellas', '5 estrellas'",
+            });
+            return;
+        }
+
+        if (!validateComodidades.isValid) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Faltan campos obligatorios',
+                text: "La cantidad de comodidades es requerida y debe haber minimo una comodidad",
+            });
+            return;
+        }
+
         await updateHotel(editData._id, editData);
         handleCloseEditModal();
         await getHoteles();
@@ -88,9 +136,10 @@ const HotelesPage = () => {
         await deleteHotel(id);
     };
     return (
-        <div className="arriba">
-            <Box sx={{ p: 3, minHeight: "100vh" }}>
-                <Typography variant="h4" gutterBottom textAlign="center" color="primary">
+        <div>
+            <Navbar />
+            <Box className="arriba" sx={{ p: 3, minHeight: "100vh" }}>
+                <Typography className="arriba1" variant="h4" gutterBottom textAlign="center" color="primary">
                     Gestión de Hoteles
                 </Typography>
 

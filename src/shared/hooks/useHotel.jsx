@@ -21,12 +21,7 @@ export const useHotel = () => {
 
     try {
 
-      const hotelData = {
-        name: name,
-        direccion: direccion,
-        categoria: categoria,
-        comodidades: comodidades
-      }
+      const hotelData = { name, direccion, categoria, comodidades }
 
       await saveHotelRequest(hotelData);
 
@@ -37,8 +32,6 @@ export const useHotel = () => {
         timer: 3000,
         showConfirmButton: false
       });
-
-      navigate('/hoteles');
 
     } catch (error) {
       const backendError = error.response?.data;

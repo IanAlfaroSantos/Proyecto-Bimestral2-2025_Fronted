@@ -1,7 +1,6 @@
 import { useUserSettings } from "../../shared/hooks";
 import { UserSettings } from "../../components/users/UpdateSettings";
 import { Navbar } from "../../components/navbars/Navbar";
-import "../dashboard/dashboard.css";
 import "../auth/auth.css";
 import PrivateRoutes from "../../components/PrivateRoutes";
 

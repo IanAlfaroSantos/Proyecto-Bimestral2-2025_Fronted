@@ -1,0 +1,13 @@
+.arriba {
+    transform: translateY(20%);
+}
+
+.arriba1 {
+    transform: translateY(-250%);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
