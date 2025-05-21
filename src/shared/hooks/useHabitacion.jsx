@@ -31,7 +31,6 @@ export const useHabitacion = () => {
             const response = await postHabitaciones(data)
         } catch (error) {
             const backendError = error.response?.data;
-
             Swal.fire({
                 icon: 'error',
                 title: 'Error',

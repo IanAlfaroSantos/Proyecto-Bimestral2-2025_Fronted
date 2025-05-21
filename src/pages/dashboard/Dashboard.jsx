@@ -1,5 +1,5 @@
 import Navbar from '../../components/navbars/Navbar';
-import './dashboard.css';
+//import './dashboard.css';
 
 export const DashboardPages = () => {
     return (

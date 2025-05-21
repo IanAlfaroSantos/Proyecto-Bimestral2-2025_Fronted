@@ -1,5 +1,5 @@
 .aña {
-    transform: translateY(-100%);
+    transform: translateY(-2%);
 }
 
 .aña1 {
@@ -8,8 +8,3 @@
 
 
 
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
