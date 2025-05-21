@@ -3,3 +3,4 @@ export { useLogin } from './useLogin';
 export { useUserDetails } from './useUserDetails';
 export { useUserSettings } from './useUserUpdate';
 export { useDeleteUser } from './useRemoveUser';
+export { useHotel } from './useHotel';

@@ -267,6 +267,7 @@ export const UserSettings = () => {
                             onBlurHandler={handleInputValidationOnBlur}
                             showErrorMessage={formState.username.showError}
                             validationMessage={formState.username.validationMessage}
+                            icon={FaUserTie}
                         />
                         <br />
                         <Input

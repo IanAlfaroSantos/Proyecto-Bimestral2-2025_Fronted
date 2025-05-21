@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useUserDetails } from "../../shared/hooks";
 import { IoHome } from "react-icons/io5";
-import { FaUserGear } from "react-icons/fa6";
+import { FaUserGear, FaHotel } from "react-icons/fa6";
 import { ImExit } from "react-icons/im";
 import { ImEnter } from "react-icons/im";
 
@@ -32,6 +32,10 @@ export const Navbar = () => {
         navigate('/settings');
     }
 
+    const handleNavigateToHotelPage = () => {
+        navigate('/hoteles')
+    }
+
     const handleLogout = async () => {
         logout();
     }
@@ -47,6 +51,9 @@ export const Navbar = () => {
                         <NavButton onClickHandler={handleNavigateToSettingPage}>
                             <FaUserGear size={30} />
                         </NavButton>
+                        <NavButton onClickHandler={handleNavigateToHotelPage}>
+                            <FaHotel size={30} />
+                        </NavButton>
                         <NavButton onClickHandler={handleNavigateToAuthPage}>
                             <ImEnter size={30} />
                         </NavButton>
@@ -58,6 +65,9 @@ export const Navbar = () => {
                         </NavButton>
                         <NavButton onClickHandler={handleNavigateToSettingPage}>
                             <FaUserGear size={30} />
+                        </NavButton>
+                        <NavButton onClickHandler={handleNavigateToHotelPage}>
+                            <FaHotel size={30} />
                         </NavButton>
                         <NavButton onClickHandler={handleLogout}>
                             <ImExit size={30} />

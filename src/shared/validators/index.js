@@ -7,3 +7,7 @@ export * from './validatePassword';
 export * from './validatePasswordUpdate';
 export * from './validateConfirPassword';
 export * from './validateUsernameOrEmail';
+export * from './validateNameHotel';
+export * from './validateDirection';
+export * from './validateCategorie';
+export * from './validateComodidades';

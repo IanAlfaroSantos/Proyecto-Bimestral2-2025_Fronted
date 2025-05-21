@@ -41,3 +41,25 @@ export const updateUser = async (data) => {
 export const deleteUser = async (data) => {
     return await apiClient.delete('users/', { data: data });
 }
+
+export const saveHotel = async (data) => {
+    return await apiClient.post('hoteles/', data);
+}
+
+export const getHoteles = async () => {
+    const response = await apiClient.get('hoteles/');
+    return response.data;
+}
+
+export const getHotelById = async (id) => {
+    const response = await apiClient.get(`hoteles/${id}`);
+    return response.data;
+}
+
+export const updateHotel = async (id, data) => {
+    return await apiClient.put(`hoteles/${id}`, data);
+}
+
+export const deleteHotel = async (id) => {
+    return await apiClient.delete(`hoteles/${id}`);
+}
