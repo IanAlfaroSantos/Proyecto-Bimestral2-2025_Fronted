@@ -1,0 +1,13 @@
+.arribaEvento {
+    transform: translateY(-100%);
+}
+
+.arribaEvento1 {
+    transform: translateY(-1300%);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}

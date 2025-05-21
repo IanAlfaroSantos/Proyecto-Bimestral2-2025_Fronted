@@ -29,31 +29,35 @@ export const register = async (data) => {
     return await apiClient.post('users/register', data);
 }
 
+export const postEvento = async (data) => {
+    return await apiClient.post('eventos/postEvento', data);
+}
+
 
 export const postHabitaciones = async (data) => {
 
-        return await apiClient.post('/rooms/', data);
+    return await apiClient.post('/rooms/', data);
 
 }
 
 
 export const getHabitaciones = async () => {
 
-        return await apiClient.get('/rooms/');
+    return await apiClient.get('/rooms/');
 
 }
 
 
 
 export const updateHabitaciones = async (id, data) => {
-    
-        return await apiClient.put(`/rooms/${id}`, data);
-   
+
+    return await apiClient.put(`/rooms/${id}`, data);
+
 }
 
 export const getHabitacionesByType = async (type) => {
-    
-        return await apiClient.get(`/rooms/tipo/${type}`);
+
+    return await apiClient.get(`/rooms/tipo/${type}`);
 }
 
 
