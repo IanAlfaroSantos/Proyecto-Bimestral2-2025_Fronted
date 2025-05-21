@@ -57,4 +57,13 @@ export const getHabitacionesByType = async (type) => {
 }
 
 
+export const getHotelDemanda = async () => {
+    return await apiClient.get('/informes/demanda');
+}
+
+export const getInformeReservaciones = async (id) => {
+    return await apiClient.get(`/informes/reservaciones/${id}`);
+}
+
+
 

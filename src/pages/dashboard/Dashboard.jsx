@@ -1,4 +1,4 @@
-import { Navbar } from "../../components/navbars/Navbar";
+import Navbar from '../../components/navbars/Navbar';
 import './dashboard.css';
 
 export const DashboardPages = () => {

@@ -9,13 +9,14 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText
+  ListItemText,
+  styled,
+  keyframes
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useUserDetails } from "../../shared/hooks";
 
-
-
+// Icons
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -29,11 +30,40 @@ import HotelIcon from '@mui/icons-material/Hotel';
 
 import { useState } from "react";
 
+const gradientAnimation = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
+
+const StyledAppBar = styled(AppBar)({
+  background: 'linear-gradient(45deg, #1976d2 30%, #2196f3 90%)',
+  backgroundSize: '400% 400%',
+  animation: `${gradientAnimation} 10s ease infinite`,
+  boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+  borderRadius: '0 0 15px 15px'
+});
+
+const AnimatedListItem = styled(ListItemButton)(({ theme }) => ({
+  transition: 'all 0.3s ease',
+  '&:hover': {
+    transform: 'translateX(10px)',
+    backgroundColor: theme.palette.action.hover,
+    '& .MuiListItemIcon-root': {
+      color: theme.palette.primary.main
+    }
+  }
+}));
+
+const RotatingMenuIcon = styled(MenuIcon)(({ open }) => ({
+  transform: open ? 'rotate(90deg)' : 'rotate(0deg)',
+  transition: 'transform 0.3s ease'
+}));
+
 export const Navbar = () => {
   const { isLogged, logout } = useUserDetails();
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [habitaciones, setHabitaciones] = useState(false);
 
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
@@ -41,7 +71,7 @@ export const Navbar = () => {
 
   const handleNavigate = (path) => () => {
     navigate(path);
-    setDrawerOpen(false); 
+    setDrawerOpen(false);
   };
 
   const handleLogout = () => {
@@ -49,69 +79,125 @@ export const Navbar = () => {
     setDrawerOpen(false);
   };
 
-  // Solo para el Drawer (menú lateral)
   const drawerItems = [
-    { text: "Habitaciones", icon: <BedIcon />, action: handleNavigate("/habitaciones") },
-    { text: "Eventos", icon: <EventIcon />, action: handleNavigate("/eventos") },
-    { text: "Reservaciones", icon: <ReceiptLongIcon />, action: handleNavigate("/reservaciones") },
-    { text: "Facturas", icon: <ReceiptLongIcon />, action: handleNavigate("/facturas") },
-    { text: "Hoteles", icon: <HotelIcon />, action: handleNavigate("/hoteles") },
-    { text: "Informes", icon: <InsertChartIcon />, action: handleNavigate("/informes") }
+    { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones" },
+    { text: "Eventos", icon: <EventIcon />, path: "/eventos" },
+    { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/reservaciones" },
+    { text: "Facturas", icon: <ReceiptLongIcon />, path: "/facturas" },
+    { text: "Hoteles", icon: <HotelIcon />, path: "/hoteles" },
+    { text: "Informes", icon: <InsertChartIcon />, path: "/informes" }
   ];
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: "#1976d2" }}>
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+      <StyledAppBar position="static">
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between", py: 1 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <IconButton color="inherit" onClick={toggleDrawer(true)}>
-              <MenuIcon />
+              <RotatingMenuIcon open={drawerOpen} />
             </IconButton>
             <Tooltip title="Inicio">
-              <IconButton color="inherit" onClick={handleNavigate("/")}>
-                <HomeIcon />
+              <IconButton 
+                color="inherit" 
+                onClick={handleNavigate("/")}
+                sx={{ 
+                  '&:hover': { 
+                    transform: 'scale(1.1)',
+                    transition: 'transform 0.2s'
+                  } 
+                }}
+              >
+                <HomeIcon fontSize="medium" />
               </IconButton>
             </Tooltip>
           </Box>
 
           <Box sx={{ display: "flex", gap: 2 }}>
             <Tooltip title="Configuraciones">
-              <IconButton color="inherit" onClick={handleNavigate("/settings")}>
-                <SettingsIcon />
+              <IconButton
+                color="inherit"
+                onClick={handleNavigate("/settings")}
+                sx={{
+                  '&:hover': {
+                    transform: 'rotate(15deg)',
+                    transition: 'transform 0.2s'
+                  }
+                }}
+              >
+                <SettingsIcon fontSize="medium" />
               </IconButton>
             </Tooltip>
 
             {!isLogged ? (
               <Tooltip title="Iniciar Sesión">
-                <IconButton color="inherit" onClick={handleNavigate("/auth")}>
-                  <LoginIcon />
+                <IconButton
+                  color="inherit"
+                  onClick={handleNavigate("/auth")}
+                  sx={{
+                    '&:hover': {
+                      transform: 'scale(1.1)',
+                      transition: 'transform 0.2s'
+                    }
+                  }}
+                >
+                  <LoginIcon fontSize="medium" />
                 </IconButton>
               </Tooltip>
             ) : (
               <Tooltip title="Cerrar Sesión">
-                <IconButton color="inherit" onClick={handleLogout}>
-                  <LogoutIcon />
+                <IconButton
+                  color="inherit"
+                  onClick={handleLogout}
+                  sx={{
+                    '&:hover': {
+                      transform: 'scale(1.1)',
+                      transition: 'transform 0.2s'
+                    }
+                  }}
+                >
+                  <LogoutIcon fontSize="medium" />
                 </IconButton>
               </Tooltip>
             )}
           </Box>
         </Toolbar>
-      </AppBar>
+      </StyledAppBar>
 
-      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            width: 280,
+            background: 'linear-gradient(195deg, #f8f9fa 30%, #ffffff 90%)',
+            borderRadius: '0 15px 15px 0'
+          }
+        }}
+      >
         <Box
-          sx={{ width: 250 }}
+          sx={{ width: 280 }}
           role="presentation"
-          onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          <List>
+          <Box sx={{ p: 3, textAlign: 'center', borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
+            <HotelIcon sx={{ fontSize: 40, color: 'primary.main', mb: 1 }} />
+            <h3 style={{ margin: 0, color: '#1976d2' }}>Hotel Dashboard</h3>
+          </Box>
+          
+          <List sx={{ py: 2 }}>
             {drawerItems.map((item, index) => (
               <ListItem key={index} disablePadding>
-                <ListItemButton onClick={item.action}>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
+                <AnimatedListItem onClick={handleNavigate(item.path)}>
+                  <ListItemIcon sx={{ minWidth: 40 }}>{item.icon}</ListItemIcon>
+                  <ListItemText 
+                    primary={item.text} 
+                    primaryTypographyProps={{ 
+                      fontWeight: 600,
+                      variant: 'body1'
+                    }} 
+                  />
+                </AnimatedListItem>
               </ListItem>
             ))}
           </List>
@@ -120,3 +206,5 @@ export const Navbar = () => {
     </>
   );
 };
+
+export default Navbar;  
