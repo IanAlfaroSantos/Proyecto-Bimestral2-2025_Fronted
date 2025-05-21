@@ -33,6 +33,9 @@ export const postEvento = async (data) => {
     return await apiClient.post('eventos/postEvento', data);
 }
 
+export const getEventos = async () => {
+    return await apiClient.get('eventos/getEventos');
+}
 
 export const postHabitaciones = async (data) => {
 

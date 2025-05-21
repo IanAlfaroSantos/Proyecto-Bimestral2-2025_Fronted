@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { postEvento } from "../../services/api";
+import { postEvento, getEventos } from "../../services/api";
 
 export const useEventos = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const [evento, setEvento] = useState(null);
+    const [listaEventos, setListaEventos] = useState([]);
 
     const handlePostEvento = async (data) => {
         setIsLoading(true);
@@ -28,5 +29,32 @@ export const useEventos = () => {
         }
     };
 
-    return { handlePostEvento, isLoading, error, success, evento }
-}
+    const handleGetEventos = async () => {
+        setIsLoading(true);
+        setError(null);
+
+        try {
+            const response = await getEventos();
+
+            if (response?.data?.success) {
+                setListaEventos(response.data.eventos);
+            } else {
+                throw new Error("Error al cargar los eventos!");
+            }
+        } catch (err) {
+            setError(err.response?.data?.msg || err.message || "Error!");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    return {
+        handlePostEvento,
+        handleGetEventos,
+        isLoading,
+        error,
+        success,
+        evento,
+        listaEventos
+    };
+};
