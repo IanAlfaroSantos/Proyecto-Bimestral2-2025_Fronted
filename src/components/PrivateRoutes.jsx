@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 
-const PrivateRoutes = ({ element }) => {
+const PrivateRoutes = ({ children }) => {
 
     const user = localStorage.getItem('user');
     const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -26,7 +26,7 @@ const PrivateRoutes = ({ element }) => {
         return <Navigate to="/auth" />;
     }
 
-    return user ? element : null;
+    return user ? children : null;
 }
 
 export default PrivateRoutes;
