@@ -6,7 +6,7 @@ export const validateDirection = (direccion) => {
         }
     }
 
-    const regex = /^[^\s]{0,250}$/;
+    const regex = /^.{0,250}$/;
     if (!regex.test(direccion)) {
         return {
             isValid: false,

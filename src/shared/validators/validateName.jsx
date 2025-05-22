@@ -6,11 +6,11 @@ export const validateName = (name) => {
         }
     }
 
-    const regex = /^\S{3,25}$/;
+    const regex = /^.{3,25}$/;
     if (!regex.test(name)) {
         return {
             isValid: false,
-            message: 'El nombre debe contener entre 3 y 25 caracteres y no debe contener espacios'
+            message: 'El nombre debe contener entre 3 y 25 caracteres'
         }
     }
 

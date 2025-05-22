@@ -126,6 +126,7 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    transform: translateY(-200%);
 }
 
 .auth-form-field.error .auth-form-validation-message {

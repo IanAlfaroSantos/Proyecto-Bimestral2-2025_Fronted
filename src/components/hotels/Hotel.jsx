@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import {
     Table, TableHead, TableBody, TableRow, TableCell, Paper, Typography, TableContainer, TextField, Select, MenuItem, Button, FormControl, InputLabel, Box, Grid, InputAdornment, Dialog, DialogActions, DialogContent, DialogTitle
 } from "@mui/material";
-import HotelIcon from '@mui/icons-material/Hotel';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import CategoryIcon from '@mui/icons-material/Category';
-import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import DryCleaningIcon from '@mui/icons-material/DryCleaning';
 import Swal from "sweetalert2";
 import { Navbar } from "../../components/navbars/Navbar";
 import {
@@ -85,51 +86,49 @@ const HotelesPage = () => {
         setIsEditModalOpen(false);
     };
     const handleSaveEdit = async () => {
-        if (!editData || !editData._id) {
-            console.error("No hay ID en editData");
-            return;
-        }
+        await updateHotel(editData._id, editData);
+        handleCloseEditModal();
 
-        let result = { isValid: false, message: '' };
-
-        if (!validateName.isValid) {
+        const nameValidation = validateName(editData.name);
+        if (!nameValidation.isValid) {
             Swal.fire({
                 icon: 'error',
-                title: 'Faltan campos obligatorios',
-                text: 'El nombre requerido y debe contener entre 3 y 25 caracteres y no debe contener espacios',
+                title: 'Error name',
+                text: 'El nombre requerido y debe contener entre 3 y 25 caracteres',
             });
             return;
         }
 
-        if (!validateDirection.isValid) {
+        const direccionValidation = validateDirection(editData.direccion);
+        if (!direccionValidation.isValid) {
             Swal.fire({
                 icon: 'error',
-                title: 'Faltan campos obligatorios',
+                title: 'Error direccion',
                 text: 'La dirección es requerida y debe contener máximo 250 caracteres',
             });
             return;
         }
 
-        if (!validateCategorie.isValid) {
+        const categoriaValidation = validateCategorie(editData.categoria);
+        if (!categoriaValidation.isValid) {
             Swal.fire({
                 icon: 'error',
-                title: 'Faltan campos obligatorios',
+                title: 'Erroro categoria',
                 text: "El valor de la categoría debe ser uno de los siguientes: '1 estrella', '2 estrellas', '3 estrellas', '4 estrellas', '5 estrellas'",
             });
             return;
         }
 
-        if (!validateComodidades.isValid) {
+        const comodidadesValidation = validateComodidades(editData.comodidades);
+        if (!comodidadesValidation.isValid) {
             Swal.fire({
                 icon: 'error',
-                title: 'Faltan campos obligatorios',
-                text: "La cantidad de comodidades es requerida y debe haber minimo una comodidad",
+                title: 'Error comodidades',
+                text: "La cantidad de comodidades es requerida y debe haber minimo 1 comodidad",
             });
             return;
         }
 
-        await updateHotel(editData._id, editData);
-        handleCloseEditModal();
         await getHoteles();
     };
     const handleDeleteHotel = async (id) => {
@@ -182,7 +181,7 @@ const HotelesPage = () => {
                                     InputProps={{
                                         startAdornment: (
                                             <InputAdornment position="start">
-                                                <HotelIcon color="action" />
+                                                <HomeWorkIcon color="action" />
                                             </InputAdornment>
                                         ),
                                     }}
@@ -199,7 +198,7 @@ const HotelesPage = () => {
                                     InputProps={{
                                         startAdornment: (
                                             <InputAdornment position="start">
-                                                <HotelIcon color="action" />
+                                                <FmdGoodIcon color="action" />
                                             </InputAdornment>
                                         ),
                                     }}
@@ -234,7 +233,7 @@ const HotelesPage = () => {
                                     InputProps={{
                                         startAdornment: (
                                             <InputAdornment position="start">
-                                                <ConfirmationNumberIcon color="action" />
+                                                <DryCleaningIcon color="action" />
                                             </InputAdornment>
                                         ),
                                     }}
@@ -268,7 +267,10 @@ const HotelesPage = () => {
                                 mx: "auto",
                                 p: 2,
                                 boxShadow: 3,
-                                borderRadius: 3
+                                borderRadius: 3,
+                                maxHeight: 400,
+                                overflowY: 'auto',
+                                scrollbarWidth: 'none'
                             }}
                         >
                             <Typography variant="h4" align="center" gutterBottom fontWeight="bold">
@@ -280,22 +282,23 @@ const HotelesPage = () => {
                                     <TableHead sx={{ backgroundColor: '#1976d2' }}>
                                         <TableRow>
                                             <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>
-                                                <HotelIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
+                                                <HomeWorkIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
                                                 Hotel
                                             </TableCell>
                                             <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>
-                                                <CategoryIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
+                                                <FmdGoodIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
                                                 Direccion
                                             </TableCell>
                                             <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>
-                                                <ConfirmationNumberIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
+                                                <CategoryIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
                                                 Categorias
                                             </TableCell>
                                             <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>
-                                                <MonetizationOnIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
+                                                <DryCleaningIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
                                                 Comodidades
                                             </TableCell>
                                             <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>
+                                                <SettingsSuggestIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
                                                 Acciones
                                             </TableCell>
                                         </TableRow>
@@ -309,7 +312,7 @@ const HotelesPage = () => {
                                                     <TableCell>{hot.categoria}</TableCell>
                                                     <TableCell>{hot.comodidades}</TableCell>
                                                     <TableCell>
-                                                        <Box sx={{ display: 'flex', gap: 1 }}>
+                                                        <Box sx={{ display: 'flex', gap: 1, width: '120px' }}>
                                                             <Button
                                                                 variant="contained"
                                                                 color="primary"
@@ -317,7 +320,6 @@ const HotelesPage = () => {
                                                                 onClick={() => handleOpenEditModal(hot)}
                                                                 sx={{ textTransform: 'none' }}
                                                             >
-                                                                Editar
                                                             </Button>
                                                             <Button
                                                                 variant="contained"
@@ -326,7 +328,6 @@ const HotelesPage = () => {
                                                                 onClick={() => handleDeleteHotel(hot._id)}
                                                                 sx={{ textTransform: 'none' }}
                                                             >
-                                                                Eliminar
                                                             </Button>
                                                         </Box>
                                                     </TableCell>
@@ -352,6 +353,13 @@ const HotelesPage = () => {
                                         onChange={(e) => setEditData({ ...editData, name: e.target.value })}
                                         fullWidth
                                         margin="normal"
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <HomeWorkIcon color="action" />
+                                                </InputAdornment>
+                                            )
+                                        }}
                                     />
                                     <TextField
                                         label="Direccion"
@@ -361,24 +369,46 @@ const HotelesPage = () => {
                                         onChange={(e) => setEditData({ ...editData, direccion: e.target.value })}
                                         fullWidth
                                         margin="normal"
+                                        InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <HomeWorkIcon color="action" />
+                                            </InputAdornment>
+                                        )
+                                    }}
                                     />
-                                    <TextField
-                                        label="Categoria"
-                                        name="categoria"
-                                        type="text"
-                                        value={editData?.categoria || ""}
-                                        onChange={(e) => setEditData({ ...editData, categoria: e.target.value })}
-                                        fullWidth
-                                        margin="normal"
-                                    />
+                                    <FormControl fullWidth>
+                                        <InputLabel id="edit-categoria-label">Categoría</InputLabel>
+                                        <Select
+                                            labelId="edit-categoria-label"
+                                            name="categoria"
+                                            value={editData?.categoria || ""}
+                                            label="Categoría"
+                                            onChange={(e) => setEditData({ ...editData, categoria: e.target.value })}
+                                        >
+                                            <MenuItem value="1 estrella">1 Estrella</MenuItem>
+                                            <MenuItem value="2 estrellas">2 Estrellas</MenuItem>
+                                            <MenuItem value="3 estrellas">3 Estrellas</MenuItem>
+                                            <MenuItem value="4 estrellas">4 Estrellas</MenuItem>
+                                            <MenuItem value="5 estrellas">5 Estrellas</MenuItem>
+                                        </Select>
+                                    </FormControl>
                                     <TextField
                                         label="Comodidades"
                                         name="comodidades"
                                         type="number"
+                                        inputProps={{ min: 1 }}
                                         value={editData?.comodidades || ""}
                                         onChange={(e) => setEditData((prev) => ({ ...prev, comodidades: Number(e.target.value) }))}
                                         fullWidth
                                         margin="normal"
+                                        InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <DryCleaningIcon color="action" />
+                                            </InputAdornment>
+                                        )
+                                    }}
                                     />
                                 </DialogContent>
                                 <DialogActions>

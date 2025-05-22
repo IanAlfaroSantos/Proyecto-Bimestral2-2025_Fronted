@@ -63,3 +63,27 @@ export const updateHotel = async (id, data) => {
 export const deleteHotel = async (id) => {
     return await apiClient.delete(`hoteles/${id}`);
 }
+
+export const postHabitaciones = async (data) => {
+    return await apiClient.post('/rooms/', data);
+}
+
+export const getHabitaciones = async () => {
+    return await apiClient.get('/rooms/');
+}
+
+export const updateHabitaciones = async (id, data) => {
+    return await apiClient.put(`/rooms/${id}`, data);
+}
+
+export const getHabitacionesByType = async (type) => {
+    return await apiClient.get(`/rooms/tipo/${type}`);
+}
+
+export const getHotelDemanda = async () => {
+    return await apiClient.get('/informes/demanda');
+}
+
+export const getInformeReservaciones = async (id) => {
+    return await apiClient.get(`/informes/reservaciones/${id}`);
+}
