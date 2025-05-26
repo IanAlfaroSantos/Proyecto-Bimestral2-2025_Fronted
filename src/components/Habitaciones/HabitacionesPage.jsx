@@ -68,6 +68,7 @@ const HabitacionesPage = () => {
     handleGetHabitaciones();
   };
   const [filtroTipo, setFiltroTipo] = useState("");
+  const [filtroName, setFiltroName] = useState("");
   return (
     <div className="arriba">
       <Box sx={{ p: 3, minHeight: "100vh" }}>
