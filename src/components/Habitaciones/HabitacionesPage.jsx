@@ -11,7 +11,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 
-import './habitaciones.css';
+//import './habitaciones.css';
 import { useHabitacion } from "../../shared/hooks/useHabitacion.jsx";
 const HabitacionesPage = () => {
   const {

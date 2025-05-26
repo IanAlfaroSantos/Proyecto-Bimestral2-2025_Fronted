@@ -6,6 +6,7 @@ import { createRoot } from 'react-dom/client'
 import { App } from './App.jsx'
 import PrivateRoutes from "./components/PrivateRoutes.jsx";
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -14,6 +15,8 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path="/habitaciones" element={<HabitacionesPage />} />
       <Route path="/informes" element={<InformesPage />} />
+      <Route path="/eventos" element={<EventosPage />} />
+      <Route path="/reservaciones" element={<ReservacionesPage />} />
     </Routes>
 
   </BrowserRouter>

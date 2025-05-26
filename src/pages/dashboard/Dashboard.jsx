@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/navbars/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+=======
+import { Navbar } from "../../components/navbars/Navbar";
+//import './dashboard.css';
+>>>>>>> feature/dmonterroso
 
 export const DashboardPages = () => {
   return (
