@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useInformes } from '../../shared/hooks/useInformes';
+import Navbar from '../navbars/Navbar';
 import {
   Box,
   Typography,
@@ -48,7 +49,8 @@ const InformesPage = () => {
   }, [selectedHotel]);
 
   return (
-    <div className="aña">
+    <div >
+      <Navbar />
       <Box sx={{ p: 3 }}>
       <Typography variant="h4" gutterBottom>
         Informes Hoteleros

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useFacturas } from '../../shared/hooks/useFacturas';
+import { useFacturas } from '../../shared/hooks/useFacturas'
+import Navbar from '../navbars/Navbar';
 
 const FacturasPage = () => {
   const { handleGetFacturas,handleGetFacturaByUser, facturas, isLoading } = useFacturas();
@@ -17,7 +18,7 @@ const FacturasPage = () => {
         }
     } catch (error) {
         console.error('Error al obtener rol de usuario:', error);
-        handleGetFacturaByUser(); // Asumimos seguro por defecto
+        handleGetFacturaByUser();
     }
     }, []);
 
@@ -28,10 +29,15 @@ const FacturasPage = () => {
   };
 
   return (
+   
+    <div>
+      <Navbar />
     <div className="container py-5">
+       
       <div className="row justify-content-center">
         <div className="col-lg-10 bg-white rounded-4 shadow p-4">
           <h2 className="text-primary text-center mb-4">Facturas</h2>
+         
 
           {isLoading && facturas.length === 0 ? (
             <div className="d-flex justify-content-center py-5">
@@ -81,6 +87,7 @@ const FacturasPage = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useEventos } from '../../shared/hooks/useEvento';
 import { validateEvento } from '../../shared/validators/validateEvent';
+import Navbar from '../navbars/Navbar.jsx';
 
 const eventoInicial = {
   hotel: '',
@@ -59,6 +60,8 @@ const EventosPage = () => {
   };
 
   return (
+     <div>
+      <Navbar />
     <div className="container py-5">
       <div className="row justify-content-center gap-4">
         <div className="col-md-5 col-lg-4 bg-white rounded-4 shadow p-4">
@@ -143,6 +146,7 @@ const EventosPage = () => {
           )}
         </div>
       </div>
+    </div>
     </div>
   )
 }

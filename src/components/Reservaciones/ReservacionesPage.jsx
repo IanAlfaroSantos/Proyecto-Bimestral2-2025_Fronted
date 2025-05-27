@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useReservaciones } from '../../shared/hooks/useReservacion';
 import { validateReservacion } from '../../shared/validators/validateReservacion';
+import Navbar from '../navbars/Navbar.jsx';
 
 const ReservacionesPage = () => {
   const { handleGetReservaciones, handlePostReservacion, handlePutReservacion, handleDeleteReservacion, listaReservaciones, isLoading } = useReservaciones();
@@ -72,6 +73,8 @@ const ReservacionesPage = () => {
   };
 
   return (
+    <div>
+    <Navbar />
     <div className="container py-5">
       <div className="row justify-content-center gap-4">
         <div className="col-md-5 col-lg-4 bg-white rounded-4 shadow p-4">
@@ -180,6 +183,7 @@ const ReservacionesPage = () => {
           )}
         </div>
       </div>
+    </div>
     </div>
   )
 }
