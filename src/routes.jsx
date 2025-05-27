@@ -10,14 +10,14 @@ import InformesPage from "./components/Informes/InformesPage.jsx";
 
 const routes = [
     {path: 'auth', element: <Auth /> },
-    {path: '/*', element: <DashboardPages /> },
     {path: '/settings', element: <UserSettingsUpdate /> },
     {path: '/hoteles', element: <HotelesPage /> },
     {path: '/habitaciones', element: <HabitacionesPage />},
     {path: '/eventos', element: <EventosPage />},
     {path: '/facturas', element: <FacturasPage/>},
     {path: '/reservaciones', element: <ReservacionesPage />},
-    {path: '/informes', element: <InformesPage />}
+    {path: '/informes', element: <InformesPage />},
+    {path: '/*', element: <DashboardPages /> }
     
 ]
 

@@ -12,14 +12,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
- 
     <App />
-    <Routes>
-      <Route path="/habitaciones" element={<HabitacionesPage />} />
-      <Route path="/eventos" element={<EventosPage />} />
-      <Route path="/reservaciones" element={<ReservacionesPage />} />
-      <Route path="/facturas" element={<FacturasPage />} />
-    </Routes>
-
   </BrowserRouter>
 )

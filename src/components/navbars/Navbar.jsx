@@ -65,7 +65,7 @@ const RotatingMenuIcon = styled(MenuIcon)(({ open }) => ({
 }));
 
 export const Navbar = () => {
-  const { isLogged, logout } = useUserDetails();
+  const { isLogged, logout, user } = useUserDetails();
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -83,18 +83,22 @@ export const Navbar = () => {
     setDrawerOpen(false);
   };
 
-  const handleNavigateToHotelPage = () => {
-    navigate('/hoteles')
-  }
 
-  const drawerItems = [
-    { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones" },
-    { text: "Eventos", icon: <EventIcon />, path: "/eventos" },
-    { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/reservaciones" },
-    { text: "Facturas", icon: <ReceiptLongIcon />, path: "/facturas" },
-    { text: "Hoteles", icon: <HotelIcon />, path: "/hoteles" },
-    { text: "Informes", icon: <InsertChartIcon />, path: "/informes" }
+
+ const drawerItems = [
+    { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
+    { text: "Eventos", icon: <EventIcon />, path: "/eventos", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
+    { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/reservaciones", roles: ["USER"] },
+    { text: "Facturas", icon: <ReceiptLongIcon />, path: "/facturas", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
+    { text: "Hoteles", icon: <HotelIcon />, path: "/hoteles", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
+    { text: "Informes", icon: <InsertChartIcon />, path: "/informes", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] }
   ];
+
+
+  const filteredDrawerItems = drawerItems.filter((item) =>
+    user?.role && item.roles.includes(user.role)
+  );
+
 
   return (
     <>
@@ -194,7 +198,7 @@ export const Navbar = () => {
           </Box>
 
           <List sx={{ py: 2 }}>
-            {drawerItems.map((item, index) => (
+            {filteredDrawerItems.map((item, index) => (
               <ListItem key={index} disablePadding>
                 <AnimatedListItem onClick={handleNavigate(item.path)}>
                   <ListItemIcon sx={{ minWidth: 40 }}>{item.icon}</ListItemIcon>
