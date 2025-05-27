@@ -7,6 +7,7 @@ import EventosPage from "./components/Eventos/EventosPage.jsx";
 import ReservacionesPage from "./components/Reservaciones/ReservacionesPage.jsx";
 import FacturasPage from "./components/Facturas/FacturasPage.jsx";
 import InformesPage from "./components/Informes/InformesPage.jsx";
+import ReservacionesDetailsPage from "./components/Reservaciones/ReservacionesDetailsPage.jsx";
 
 const routes = [
     {path: 'auth', element: <Auth /> },
@@ -17,6 +18,7 @@ const routes = [
     {path: '/facturas', element: <FacturasPage/>},
     {path: '/reservaciones', element: <ReservacionesPage />},
     {path: '/informes', element: <InformesPage />},
+    {path: '/detalleReservaciones', element: <ReservacionesDetailsPage />},
     {path: '/*', element: <DashboardPages /> }
     
 ]
