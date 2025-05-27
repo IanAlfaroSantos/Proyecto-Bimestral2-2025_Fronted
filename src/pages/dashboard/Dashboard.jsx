@@ -3,7 +3,7 @@ import Navbar from '../../components/navbars/Navbar';
 
 export const DashboardPages = () => {
     return (
-        <div className="dashboard-container">
+        <div>
             <Navbar />
         </div>
     )

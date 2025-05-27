@@ -15,17 +15,15 @@ export const UserSettingsUpdate = () => {
         <div className="auth-container">
             <div className="dashboard-container">
                 <Navbar />
-                <div className="settings-container">
-                    { }
-                    <br />
-                    <br />
-                    <UserSettings
-                        initialSettings={userSettings}
-                        onSave={saveSettings}
-                    />
-                </div>
-                <PrivateRoutes />
             </div>
+            <div className="settings-container">
+                <br />
+                <UserSettings
+                    initialSettings={userSettings}
+                    onSave={saveSettings}
+                />
+            </div>
+            <PrivateRoutes />
         </div>
     )
 }

@@ -152,6 +152,15 @@
     margin-bottom: 20px;
 }
 
+.user1-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transform: translateX(80%);
+}
+
 .h6-container {
     background-color: red;
     width: 400px;
@@ -231,4 +240,19 @@
 
 .modal button {
     margin: 10px;
+}
+
+.dashboard-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #fff;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
 }

@@ -252,128 +252,142 @@ export const UserSettings = () => {
     }
 
     return (
-        <div className="register-container">
-            <img src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" className="user-image" alt="User Icon" />
-            <form className="auth-form user-settings-form" autoComplete="on">
-                {isDeleting ? (
-                    <>
-                        <h2>Confirm Account Deletion</h2>
-                        <Input
-                            field="username"
-                            label="Username"
-                            value={formState.username.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="text"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.username.showError}
-                            validationMessage={formState.username.validationMessage}
-                            icon={FaUserTie}
-                        />
-                        <br />
-                        <Input
-                            field="currentPassword"
-                            label="Current Password"
-                            value={formState.currentPassword.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="password"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.currentPassword.showError}
-                            validationMessage={formState.currentPassword.validationMessage}
-                        />
-                        <br />
-                        <button type="button" onClick={handleDeleteAccount}>
-                            Delete Account
-                        </button>
-                        <button type="button" onClick={handleCancelDelete}>
-                            Cancel
-                        </button>
-                    </>
-                ) : (
-                    <>
-                        <h2>Update Your Profile</h2>
-                        <Input
-                            field="name"
-                            label="Name"
-                            value={formState.name.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="text"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.name.showError}
-                            validationMessage={formState.name.validationMessage}
-                            autoComplete="name"
-                            icon={MdOutlineDriveFileRenameOutline}
-                        />
-                        <br />
-                        <Input
-                            field="surname"
-                            label="Surname"
-                            value={formState.surname.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="text"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.surname.showError}
-                            validationMessage={formState.surname.validationMessage}
-                            autoComplete="surname"
-                            icon={MdOutlineDriveFileRenameOutline}
-                        />
-                        <br />
-                        <Input
-                            field="username"
-                            label="Username"
-                            value={formState.username.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="text"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.username.showError}
-                            validationMessage={formState.username.validationMessage}
-                            autoComplete="username"
-                            icon={FaUserTie}
-                        />
-                        <br />
-                        <Input
-                            field="phone"
-                            label="Phone"
-                            value={formState.phone.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="tel"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.phone.showError}
-                            validationMessage={formState.phone.validationMessage}
-                            autoComplete="phone"
-                            icon={FaPhoneVolume}
-                        />
-                        <br />
-                        <Input
-                            field="currentPassword"
-                            label="Current Password"
-                            value={formState.currentPassword.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="password"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.currentPassword.showError}
-                            validationMessage={formState.currentPassword.validationMessage}
-                        />
-                        <br />
-                        <Input
-                            field="password"
-                            label="Password"
-                            value={formState.password.value}
-                            onChangeHandler={handleInputValueChange}
-                            type="password"
-                            onBlurHandler={handleInputValidationOnBlur}
-                            showErrorMessage={formState.password.showError}
-                            validationMessage={formState.password.validationMessage}
-                        />
-                        <br />
-                        <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
-                            Update
-                        </button>
-                        <button type="button" onClick={handleDeleteClick}>
-                            Delete
-                        </button>
-                    </>
-                )}
-            </form>
+        <div className="d-flex justify-content-center align-items-center vh-100 register-background">
+            <div
+                className="register-form p-4 rounded"
+                style={{
+                    position: "static",
+                    display: "block",
+                    backgroundColor: "rgba(0, 0, 0, 0.6)",
+                    color: "white",
+                    width: "100%",
+                    maxWidth: "400px",
+                    height: "100%",
+                    maxHeight: "620px"
+                }}
+            >
+                <img src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" className="user1-image" alt="User Icon" />
+                <form className="auth-form" autoComplete="on">
+                    {isDeleting ? (
+                        <>
+                            <h2>Confirm Account Deletion</h2>
+                            <Input
+                                field="username"
+                                label="Username"
+                                value={formState.username.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="text"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.username.showError}
+                                validationMessage={formState.username.validationMessage}
+                                icon={FaUserTie}
+                            />
+                            <br />
+                            <Input
+                                field="currentPassword"
+                                label="Current Password"
+                                value={formState.currentPassword.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="password"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.currentPassword.showError}
+                                validationMessage={formState.currentPassword.validationMessage}
+                            />
+                            <br />
+                            <button type="button" onClick={handleDeleteAccount}>
+                                Delete Account
+                            </button>
+                            <button type="button" onClick={handleCancelDelete}>
+                                Cancel
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <h2>Update Your Profile</h2>
+                            <Input
+                                field="name"
+                                label="Name"
+                                value={formState.name.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="text"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.name.showError}
+                                validationMessage={formState.name.validationMessage}
+                                autoComplete="name"
+                                icon={MdOutlineDriveFileRenameOutline}
+                            />
+                            <br />
+                            <Input
+                                field="surname"
+                                label="Surname"
+                                value={formState.surname.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="text"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.surname.showError}
+                                validationMessage={formState.surname.validationMessage}
+                                autoComplete="surname"
+                                icon={MdOutlineDriveFileRenameOutline}
+                            />
+                            <br />
+                            <Input
+                                field="username"
+                                label="Username"
+                                value={formState.username.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="text"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.username.showError}
+                                validationMessage={formState.username.validationMessage}
+                                autoComplete="username"
+                                icon={FaUserTie}
+                            />
+                            <br />
+                            <Input
+                                field="phone"
+                                label="Phone"
+                                value={formState.phone.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="tel"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.phone.showError}
+                                validationMessage={formState.phone.validationMessage}
+                                autoComplete="phone"
+                                icon={FaPhoneVolume}
+                            />
+                            <br />
+                            <Input
+                                field="currentPassword"
+                                label="Current Password"
+                                value={formState.currentPassword.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="password"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.currentPassword.showError}
+                                validationMessage={formState.currentPassword.validationMessage}
+                            />
+                            <br />
+                            <Input
+                                field="password"
+                                label="Password"
+                                value={formState.password.value}
+                                onChangeHandler={handleInputValueChange}
+                                type="password"
+                                onBlurHandler={handleInputValidationOnBlur}
+                                showErrorMessage={formState.password.showError}
+                                validationMessage={formState.password.validationMessage}
+                            />
+                            <br />
+                            <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
+                                Update
+                            </button>
+                            <button type="button" onClick={handleDeleteClick}>
+                                Delete
+                            </button>
+                        </>
+                    )}
+                </form>
+            </div>
         </div>
     )
 }
