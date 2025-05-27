@@ -52,14 +52,15 @@ export const useFacturas = ()=>{
         setIsLoading(true);
         try {
             const response = await postFactura(data);
-            if(response?.data?.facturas){
-                const newFactura = response.data.facturas;
+            if(response?.data?.factura){
+                const newFactura = response.data.factura;
                 setFacturas(prev => [...prev,newFactura]);
                 Swal.fire({
                     icon:'success',
                     title:'Exito',
                     text:response.data.message || 'Factura emitida exitosamente'
                 })
+            return response;
             }else{
                 throw new Error('Algo salio mal, error al generar facturas');
             }

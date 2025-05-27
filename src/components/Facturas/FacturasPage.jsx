@@ -1,25 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useFacturas } from '../../shared/hooks/useFacturas';
 
 const FacturasPage = () => {
-  const { handleGetFacturas,handleGetFacturaByUser, facturas, isLoading } = useFacturas();
-  const [facturaSeleccionada, setFacturaSeleccionada] = useState(null);
+    const { handleGetFacturas,handleGetFacturaByUser, facturas, isLoading } = useFacturas();
+    const [facturaSeleccionada, setFacturaSeleccionada] = useState(null);
+    const hasFetched = useRef(false);
 
-  useEffect(() => {
-    try {
-        const userData = JSON.parse(localStorage.getItem('user'));
-        const userRole = userData?.user?.role;
-        
-        if (userRole === 'USER') {
+    useEffect(() => {
+        if (hasFetched.current) return;
+        hasFetched.current = true;
+
+        try {
+            const userData = JSON.parse(localStorage.getItem('user'));
+            const userRole = userData?.user?.role;
+
+            if (userRole === 'USER') {
             handleGetFacturaByUser();
-        } else {
-            handleGetFacturas();
+            } else {
+             handleGetFacturas();
+            }
+        } catch (error) {
+            console.error('Error al obtener rol de usuario:', error);
+            handleGetFacturaByUser(); 
         }
-    } catch (error) {
-        console.error('Error al obtener rol de usuario:', error);
-        handleGetFacturaByUser(); // Asumimos seguro por defecto
-    }
     }, []);
+
 
 
 

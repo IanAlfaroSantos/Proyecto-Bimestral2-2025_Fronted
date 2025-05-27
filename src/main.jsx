@@ -10,10 +10,11 @@ import { App } from './App.jsx'
 import PrivateRoutes from "./components/PrivateRoutes.jsx";
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { StrictMode } from "react";
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
- 
+    <StrictMode>
     <App />
     <Routes>
       <Route path="/habitaciones" element={<HabitacionesPage />} />
@@ -22,6 +23,8 @@ createRoot(document.getElementById('root')).render(
       <Route path="/reservaciones" element={<ReservacionesPage />} />
       <Route path="/facturas" element={<FacturasPage />} />
     </Routes>
+
+    </StrictMode>
 
   </BrowserRouter>
 )

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useReservaciones } from '../../shared/hooks/useReservacion';
 import { validateReservacion } from '../../shared/validators/validateReservacion';
+import AddFacturaModal from '../Facturas/AddFacturaModal'; 
 
 const ReservacionesPage = () => {
   const { handleGetReservaciones, handlePostReservacion, handlePutReservacion, handleDeleteReservacion, listaReservaciones, isLoading } = useReservaciones();
@@ -8,6 +9,7 @@ const ReservacionesPage = () => {
   const [formData, setFormData] = useState({ nombreHotel: '', habitaciones: '', eventos: '' });
   const [formErrors, setFormErrors] = useState({});
   const [editId, setEditId] = useState(null);
+  const [facturaReservacionId, setFacturaReservacionId] = useState(null);
 
   useEffect(() => {
     handleGetReservaciones();
@@ -17,6 +19,10 @@ const ReservacionesPage = () => {
     setFormData({ nombreHotel: '', habitaciones: '', eventos: '' });
     setFormErrors({});
     setEditId(null);
+  };
+
+  const handleGenerarFactura = (id) => {
+    setFacturaReservacionId(id);
   };
 
   const handleChange = (field, value) => {
@@ -174,12 +180,25 @@ const ReservacionesPage = () => {
                   >
                     🗑️ Eliminar
                   </button>
+                  <button
+                    className="btn btn-sm btn-outline-success me-2"
+                    onClick={() => handleGenerarFactura(res._id)}
+                    disabled={isLoading}
+                  >
+                    🧾 Generar Factura
+                  </button>
                 </div>
               ))}
             </div>
           )}
         </div>
       </div>
+      {facturaReservacionId && (
+        <AddFacturaModal
+          reservacionId={facturaReservacionId}
+          onClose={() => setFacturaReservacionId(null)}
+        />
+      )}
     </div>
   )
 }
