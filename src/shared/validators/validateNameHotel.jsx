@@ -1,4 +1,4 @@
-export const validateName = (name) => {
+export const validateNameHotel = (name) => {
     if (!name.trim()) {
         return {
             isValid: false,
@@ -6,11 +6,11 @@ export const validateName = (name) => {
         }
     }
 
-    const regex = /^.{3,25}$/;
+    const regex = /^[^\s]{5,25}$/;
     if (!regex.test(name)) {
         return {
             isValid: false,
-            message: 'El nombre debe contener entre 3 y 25 caracteres'
+            message: 'El nombre debe contener entre 5 y 25 caracteres'
         }
     }
 

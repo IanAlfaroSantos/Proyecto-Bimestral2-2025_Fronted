@@ -1,0 +1,17 @@
+.arriba {
+    transform: translateY(5%);
+}
+
+.arriba1 {
+    transform: translateY(-50%);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.mensaje-error {
+    z-index: 2;
+}

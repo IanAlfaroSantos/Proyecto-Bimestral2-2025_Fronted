@@ -86,10 +86,8 @@ export const updateHabitaciones = async (id, data) => {
 }
 
 export const getHabitacionesByType = async (type) => {
-    
-        return await apiClient.get(`/rooms/tipo/${type}`);
+    return await apiClient.get(`/rooms/tipo/${type}`);
 }
-
 
 export const getHotelDemanda = async () => {
     return await apiClient.get('/informes/demanda');
@@ -98,6 +96,3 @@ export const getHotelDemanda = async () => {
 export const getInformeReservaciones = async (id) => {
     return await apiClient.get(`/informes/reservaciones/${id}`);
 }
-
-
-
