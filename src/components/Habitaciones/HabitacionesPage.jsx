@@ -10,6 +10,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
+import Navbar from "../navbars/Navbar.jsx";
 
 //import './habitaciones.css';
 import { useHabitacion } from "../../shared/hooks/useHabitacion.jsx";
@@ -70,7 +71,8 @@ const HabitacionesPage = () => {
   const [filtroTipo, setFiltroTipo] = useState("");
   const [filtroName, setFiltroName] = useState("");
   return (
-    <div className="arriba">
+    <div >
+      <Navbar/>
       <Box sx={{ p: 3, minHeight: "100vh" }}>
        <Typography variant="h4" gutterBottom textAlign="center" color="primary">
   Gestión de Habitaciones

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import Navbar from '../../components/navbars/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-//import './dashboard.css';
 
 export const DashboardPages = () => {
   return (

@@ -15,6 +15,10 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useUserDetails } from "../../shared/hooks";
+import { IoHome } from "react-icons/io5";
+import { FaUserGear, FaHotel } from "react-icons/fa6";
+import { ImExit } from "react-icons/im";
+import { ImEnter } from "react-icons/im";
 
 // Icons
 import MenuIcon from '@mui/icons-material/Menu';
@@ -79,6 +83,10 @@ export const Navbar = () => {
     setDrawerOpen(false);
   };
 
+  const handleNavigateToHotelPage = () => {
+    navigate('/hoteles')
+  }
+
   const drawerItems = [
     { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones" },
     { text: "Eventos", icon: <EventIcon />, path: "/eventos" },
@@ -97,14 +105,14 @@ export const Navbar = () => {
               <RotatingMenuIcon open={drawerOpen} />
             </IconButton>
             <Tooltip title="Inicio">
-              <IconButton 
-                color="inherit" 
+              <IconButton
+                color="inherit"
                 onClick={handleNavigate("/")}
-                sx={{ 
-                  '&:hover': { 
+                sx={{
+                  '&:hover': {
                     transform: 'scale(1.1)',
                     transition: 'transform 0.2s'
-                  } 
+                  }
                 }}
               >
                 <HomeIcon fontSize="medium" />
@@ -184,18 +192,18 @@ export const Navbar = () => {
             <HotelIcon sx={{ fontSize: 40, color: 'primary.main', mb: 1 }} />
             <h3 style={{ margin: 0, color: '#1976d2' }}>Hotel Dashboard</h3>
           </Box>
-          
+
           <List sx={{ py: 2 }}>
             {drawerItems.map((item, index) => (
               <ListItem key={index} disablePadding>
                 <AnimatedListItem onClick={handleNavigate(item.path)}>
                   <ListItemIcon sx={{ minWidth: 40 }}>{item.icon}</ListItemIcon>
-                  <ListItemText 
-                    primary={item.text} 
-                    primaryTypographyProps={{ 
+                  <ListItemText
+                    primary={item.text}
+                    primaryTypographyProps={{
                       fontWeight: 600,
                       variant: 'body1'
-                    }} 
+                    }}
                   />
                 </AnimatedListItem>
               </ListItem>

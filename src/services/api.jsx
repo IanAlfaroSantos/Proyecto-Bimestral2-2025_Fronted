@@ -29,6 +29,41 @@ export const register = async (data) => {
     return await apiClient.post('users/register', data);
 }
 
+export const getUserById = async () => {
+    const response = await apiClient.get('users/search');
+    return response.data;
+}
+
+export const updateUser = async (data) => {
+    return await apiClient.put('users/', data);
+}
+
+export const deleteUser = async (data) => {
+    return await apiClient.delete('users/', { data: data });
+}
+
+export const saveHotel = async (data) => {
+    return await apiClient.post('hoteles/', data);
+}
+
+export const getHoteles = async () => {
+    const response = await apiClient.get('hoteles/');
+    return response.data;
+}
+
+export const getHotelById = async (id) => {
+    const response = await apiClient.get(`hoteles/${id}`);
+    return response.data;
+}
+
+export const updateHotel = async (id, data) => {
+    return await apiClient.put(`hoteles/${id}`, data);
+}
+
+export const deleteHotel = async (id) => {
+    return await apiClient.delete(`hoteles/${id}`);
+}
+
 export const postEvento = async (data) => {
     return await apiClient.post('eventos/postEvento', data);
 }
@@ -86,10 +121,8 @@ export const updateHabitaciones = async (id, data) => {
 }
 
 export const getHabitacionesByType = async (type) => {
-    
-        return await apiClient.get(`/rooms/tipo/${type}`);
+    return await apiClient.get(`/rooms/tipo/${type}`);
 }
-
 
 export const getHotelDemanda = async () => {
     return await apiClient.get('/informes/demanda');
@@ -98,6 +131,3 @@ export const getHotelDemanda = async () => {
 export const getInformeReservaciones = async (id) => {
     return await apiClient.get(`/informes/reservaciones/${id}`);
 }
-
-
-

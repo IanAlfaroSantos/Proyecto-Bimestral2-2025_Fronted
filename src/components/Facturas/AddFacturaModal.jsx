@@ -15,7 +15,7 @@ const AddFacturaModal = ({ reservacionId, onClose }) => {
         }
         const res = await handlePostFactura(form);
         console.log(res)
-        setFactura(res.factura);
+        setFactura(res.data.factura);
       } catch (err) {
         setError('❌ Error al generar la factura.');
         console.error(err);
@@ -89,7 +89,7 @@ const AddFacturaModal = ({ reservacionId, onClose }) => {
                 </div>
                 <div className="col-md-6 text-end">
                   <h5 className="text-primary">Factura #{factura._id}</h5>
-                  <p><small className="text-muted">Fecha:</small> {new Date(factura.fechaPagonpm).toLocaleDateString()}</p>
+                  <p><small className="text-muted">Fecha:</small> {new Date(factura.fechaPago).toLocaleDateString()}</p>
                 </div>
               </div>
 

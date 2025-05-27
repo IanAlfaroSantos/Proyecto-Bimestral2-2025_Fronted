@@ -1,19 +1,24 @@
-import EventosPage from './components/Eventos/EventosPage';
-import FacturasPage from './components/Facturas/FacturasPage';
-import HabitacionesPage from './components/Habitaciones/HabitacionesPage';
-import InformesPage from './components/Informes/InformesPage';
-import ReservacionesPage from './components/Reservaciones/ReservacionesPage';
 import { Auth } from './pages/auth/Auth';
 import { DashboardPages } from './pages/dashboard/Dashboard';
+import { UserSettingsUpdate } from './pages/settings/UserSettings';
+import HotelesPage from './components/hotels/Hotel';
+import HabitacionesPage from "./components/Habitaciones/HabitacionesPage.jsx";
+import EventosPage from "./components/Eventos/EventosPage.jsx";
+import ReservacionesPage from "./components/Reservaciones/ReservacionesPage.jsx";
+import FacturasPage from "./components/Facturas/FacturasPage.jsx";
+import InformesPage from "./components/Informes/InformesPage.jsx";
 
 const routes = [
-    { path: 'auth', element: <Auth /> },
-    { path: '/*', element: <DashboardPages /> },
-    {path:"/habitaciones", element:<HabitacionesPage /> },
-      { path:"/informes" ,element:<InformesPage /> },     
-      { path:"/eventos", element:<EventosPage /> },
-      { path:"/reservaciones", element:<ReservacionesPage /> },
-      { path:"/facturas" ,element:<FacturasPage /> }
+    {path: 'auth', element: <Auth /> },
+    {path: '/*', element: <DashboardPages /> },
+    {path: '/settings', element: <UserSettingsUpdate /> },
+    {path: '/hoteles', element: <HotelesPage /> },
+    {path: '/habitaciones', element: <HabitacionesPage />},
+    {path: '/eventos', element: <EventosPage />},
+    {path: '/facturas', element: <FacturasPage/>},
+    {path: '/reservaciones', element: <ReservacionesPage />},
+    {path: '/informes', element: <InformesPage />}
+    
 ]
 
 export default routes;

@@ -7,12 +7,12 @@ export const validateUsernameOrEmail = (value) => {
     }
 
     const isEmail = /\S+@\S+\.\S+/.test(value);
-    const isUsername = /^\S{3,15}$/.test(value);
+    const isUsername = /^\S{3,20}$/.test(value);
 
     if (!isEmail && !isUsername) {
         return {
             isValid: false,
-            message: 'Ingresa un correo válido o un nombre de usuario 3 a 15 caracteres sin espacios'
+            message: 'Ingresa un correo válido o un nombre de usuario 3 a 20 caracteres sin espacios'
         }
     }
 
