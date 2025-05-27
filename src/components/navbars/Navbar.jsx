@@ -85,7 +85,7 @@ export const Navbar = () => {
 
 
 
- const drawerItems = [
+  const drawerItems = [
     { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Eventos", icon: <EventIcon />, path: "/eventos", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/reservaciones", roles: ["USER"] },
@@ -125,20 +125,22 @@ export const Navbar = () => {
           </Box>
 
           <Box sx={{ display: "flex", gap: 2 }}>
-            <Tooltip title="Configuraciones">
-              <IconButton
-                color="inherit"
-                onClick={handleNavigate("/settings")}
-                sx={{
-                  '&:hover': {
-                    transform: 'rotate(15deg)',
-                    transition: 'transform 0.2s'
-                  }
-                }}
-              >
-                <SettingsIcon fontSize="medium" />
-              </IconButton>
-            </Tooltip>
+            {user?.role === "USER" && (
+              <Tooltip title="Configuraciones">
+                <IconButton
+                  color="inherit"
+                  onClick={handleNavigate("/settings")}
+                  sx={{
+                    '&:hover': {
+                      transform: 'rotate(15deg)',
+                      transition: 'transform 0.2s'
+                    }
+                  }}
+                >
+                  <SettingsIcon fontSize="medium" />
+                 </IconButton>
+              </Tooltip>
+            )}
 
             {!isLogged ? (
               <Tooltip title="Iniciar Sesión">
