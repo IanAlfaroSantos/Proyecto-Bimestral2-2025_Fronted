@@ -29,6 +29,11 @@ export const register = async (data) => {
     return await apiClient.post('users/register', data);
 }
 
+export const getUsers = async () => {
+    const response = await apiClient.get('users/');
+    return response.data;
+}
+
 export const getUserById = async () => {
     const response = await apiClient.get('users/search');
     return response.data;
@@ -40,6 +45,14 @@ export const updateUser = async (data) => {
 
 export const deleteUser = async (data) => {
     return await apiClient.delete('users/', { data: data });
+}
+
+export const updateUserAdmin = async (id, data) => {
+    return await apiClient.put(`users/updateUsers/${id}`, data);
+}
+
+export const deleteUserAdmin = async (id, data) => {
+    return await apiClient.delete(`users/deleteUsers/${id}`, { data: data });
 }
 
 export const saveHotel = async (data) => {

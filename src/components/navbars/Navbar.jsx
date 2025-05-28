@@ -125,6 +125,7 @@ export const Navbar = () => {
           </Box>
 
           <Box sx={{ display: "flex", gap: 2 }}>
+            {user?.role === "USER" && (
             <Tooltip title="Configuraciones">
               <IconButton
                 color="inherit"
@@ -139,6 +140,24 @@ export const Navbar = () => {
                 <SettingsIcon fontSize="medium" />
               </IconButton>
             </Tooltip>
+            )}
+            
+            {user?.role === "ADMIN_WEB" && (
+            <Tooltip title="Gestión Usuarios">
+              <IconButton
+                color="inherit"
+                onClick={handleNavigate("/manager-users")}
+                sx={{
+                  '&:hover': {
+                    transform: 'rotate(15deg)',
+                    transition: 'transform 0.2s'
+                  }
+                }}
+              >
+                <SettingsIcon fontSize="medium" />
+              </IconButton>
+            </Tooltip>
+            )}
 
             {!isLogged ? (
               <Tooltip title="Iniciar Sesión">

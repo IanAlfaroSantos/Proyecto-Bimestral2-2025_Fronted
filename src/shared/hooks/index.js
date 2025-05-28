@@ -7,3 +7,4 @@ export {useFacturas} from './useFacturas'
 export { useUserSettings } from './useUserUpdate';
 export { useDeleteUser } from './useRemoveUser';
 export { useHotel } from './useHotel';
+export { useUpdateUsersByAdmin } from './useUpdateUsersByAdmin';

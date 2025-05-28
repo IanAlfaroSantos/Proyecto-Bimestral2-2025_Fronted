@@ -7,11 +7,13 @@ import EventosPage from "./components/Eventos/EventosPage.jsx";
 import ReservacionesPage from "./components/Reservaciones/ReservacionesPage.jsx";
 import FacturasPage from "./components/Facturas/FacturasPage.jsx";
 import InformesPage from "./components/Informes/InformesPage.jsx";
+import UsersPage from './components/users/UserUpdateByAdmin.jsx';
 
 const routes = [
     {path: 'auth', element: <Auth /> },
     {path: '/settings', element: <UserSettingsUpdate /> },
     {path: '/hoteles', element: <HotelesPage /> },
+    {path: '/manager-users', element: <UsersPage /> },
     {path: '/habitaciones', element: <HabitacionesPage />},
     {path: '/eventos', element: <EventosPage />},
     {path: '/facturas', element: <FacturasPage/>},

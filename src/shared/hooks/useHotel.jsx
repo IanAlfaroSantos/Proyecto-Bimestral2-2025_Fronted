@@ -68,14 +68,13 @@ export const useHotel = () => {
     try {
       const response = await getHotelByIdRequest(id);
       console.log(response)
-      setHabitaciones(response.data.hoteles);
     } catch (error) {
       const backendError = error.response?.data;
 
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: backendError?.error || backendError?.msg || 'Ocurrio un error al obtener habitaciones'
+        text: backendError?.error || backendError?.msg || 'Ocurrio un error al obtener hoteles'
       })
     } finally {
       setIsLoading(false);
