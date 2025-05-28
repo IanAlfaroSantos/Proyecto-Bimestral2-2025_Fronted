@@ -10,6 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import DryCleaningIcon from '@mui/icons-material/DryCleaning';
+import ImageIcon from '@mui/icons-material/Image';
 import Swal from "sweetalert2";
 import { Navbar } from "../../components/navbars/Navbar";
 import {
@@ -66,13 +67,15 @@ const HotelesPage = () => {
             return;
         }
 
-        await saveHotel(formData.name, formData.direccion, formData.categoria, formData.comodidades);
+        await saveHotel(formData.name, formData.direccion, formData.categoria, formData.comodidades, formData.imagen);
         await getHoteles();
         setFormData({
             name: "",
             direccion: "",
             categoria: "",
-            comodidades: 1
+            comodidades: 1,
+            imagen: ""
+
         });
     }
     const [editData, setEditData] = useState(null)
@@ -237,6 +240,23 @@ const HotelesPage = () => {
                                             </InputAdornment>
                                         ),
                                     }}
+                                />
+                                <TextField
+                                label= "Imagen"
+                                name="imagen"
+                                type="text"
+                                value={formData.imagen}
+                                onChange={handleChange}
+                                required
+                                fullWidth
+                                size="small"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <ImageIcon color="action" />
+                                        </InputAdornment>
+                                    ),
+                                }}
                                 />
 
                                 <Button

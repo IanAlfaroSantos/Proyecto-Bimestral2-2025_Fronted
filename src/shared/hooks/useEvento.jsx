@@ -16,6 +16,7 @@ export const useEventos = () => {
 
         try {
             const response = await postEvento(data);
+            
 
             if (response?.data?.success) {
                 setEvento(response.data.evento);
@@ -47,6 +48,7 @@ export const useEventos = () => {
 
         try {
             const response = await getEventos();
+            console.log(response.data.eventos);
 
             if (response?.data?.success) {
                 setListaEventos(response.data.eventos);

@@ -1,0 +1,261 @@
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Estilos generales */
+.habitaciones-container {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.habitaciones-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.habitaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Tarjeta */
+.habitacion-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  animation: fadeInUp 0.6s forwards;
+  opacity: 0;
+}
+
+.habitacion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Retrasos animación */
+.habitacion-card.delay-0 { animation-delay: 0.1s; }
+.habitacion-card.delay-1 { animation-delay: 0.2s; }
+.habitacion-card.delay-2 { animation-delay: 0.3s; }
+
+/* Imagen */
+.image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.habitacion-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.habitacion-card:hover .habitacion-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Detalles */
+.card-details {
+  padding: 20px;
+}
+
+.hotel-name {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-type {
+  background: #3498db;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+/* Información */
+.room-info {
+  margin: 15px 0;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.info-item {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.info-label {
+  display: block;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.info-value {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+/* Footer */
+.card-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.id-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.room-id {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.copy-button {
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.copy-button:hover {
+  transform: rotate(-15deg) scale(1.1);
+}
+
+.copy-icon {
+  color: #3498db;
+}
+
+/* Estado */
+.status-badge {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.status-badge span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.available {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.not-available {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.status-icon {
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.creation-date {
+  text-align: center;
+  color: #95a5a6;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+/* Título */
+.section-title {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 2rem;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #3498db;
+  border-radius: 2px;
+}
+
+/* Scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3498db;
+}

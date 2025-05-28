@@ -1,0 +1,229 @@
+/* Animaciones */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Estilos generales */
+.hotel-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: cardEntrance 0.6s ease forwards;
+  opacity: 0;
+  position: relative;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Retrasos animación */
+.hotel-card.delay-0 { animation-delay: 0.1s; }
+.hotel-card.delay-1 { animation-delay: 0.2s; }
+.hotel-card.delay-2 { animation-delay: 0.3s; }
+
+/* Imagen */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hotel-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hotel-card:hover .hotel-image {
+  transform: scale(1.05);
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+/* Categoría */
+.categoria-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.star-icon {
+  color: #ffc107;
+  font-size: 1.2rem;
+  margin: 0 2px;
+}
+
+/* Contenido */
+.card-content {
+  padding: 20px;
+}
+
+.hotel-title {
+  color: #1a237e;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.hotel-title .icon {
+  margin-right: 10px;
+  color: #3f51b5;
+}
+
+/* Info */
+.hotel-info {
+  margin: 15px 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.info-item .icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Disponibilidad */
+.disponibilidad-container {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.disponibilidad-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.disponibilidad-item:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.disponibilidad-item .icon {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.disponibilidad-item span {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Estado */
+.status-alert {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.status-alert.active {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-alert.inactive {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.pulse-icon {
+  animation: pulse 1.5s infinite;
+  margin-right: 10px;
+}
+
+/* Footer */
+.card-footer {
+  padding: 12px 20px;
+  background: #f8f9fa;
+  color: #666;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Estado vacío */
+.no-hoteles {
+  margin: 50px 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  color: #bdbdbd;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+/* Título */
+.title-underline {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #3f51b5 0%, #2196f3 100%);
+  border-radius: 2px;
+  animation: shine 2s infinite alternate;
+}

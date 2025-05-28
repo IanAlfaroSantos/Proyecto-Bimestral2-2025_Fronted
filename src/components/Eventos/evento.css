@@ -1,0 +1,135 @@
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.evento-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #fff;
+  animation: cardEntrance 0.6s ease forwards;
+  opacity: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Retraso animación para cada tarjeta */
+.evento-card:nth-child(1) { animation-delay: 0.1s; }
+.evento-card:nth-child(2) { animation-delay: 0.2s; }
+.evento-card:nth-child(3) { animation-delay: 0.3s; }
+.evento-card:nth-child(n+4) { animation-delay: 0.4s; }
+
+.evento-card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* Efecto brillo al hover */
+.evento-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transition: all 0.6s ease;
+}
+
+.evento-card:hover::after {
+  left: 100%;
+}
+
+.evento-img {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  transition: transform 0.4s ease;
+}
+
+.evento-card:hover .evento-img {
+  transform: scale(1.05);
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Animación del título */
+.title-underline {
+  position: relative;
+  display: inline-block;
+  animation: titleEntrance 1s ease forwards;
+}
+
+@keyframes titleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title-underline::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0d6efd 0%, #6c5ce7 100%);
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  border-radius: 10px;
+  transition: all 0.6s ease;
+}
+
+.title-underline:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Efecto para el botón de copiar */
+.btn-copy {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-copy::after {
+  content: "Copiado!";
+  position: absolute;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-copy.copied::after {
+  opacity: 1;
+  top: -25px;
+}
