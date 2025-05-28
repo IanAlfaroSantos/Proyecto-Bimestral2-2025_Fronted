@@ -10,6 +10,7 @@ import InformesPage from "./components/Informes/InformesPage.jsx";
 import EventLista from './components/Eventos/EventosLista.jsx';
 import HotelLista from './components/hotels/HotelLista.jsx';
 import HabitacionesList from './components/Habitaciones/HabitacionLista.jsx';
+import ReservacionesDetailsPage from "./components/Reservaciones/ReservacionesDetailsPage.jsx";
 
 const routes = [
     {path: 'auth', element: <Auth /> },
@@ -23,6 +24,7 @@ const routes = [
     {path: '/eventos-lista', element: <EventLista />},
     {path: '/hoteles-lista', element: <HotelLista />},
     {path: '/habitaciones-lista', element: <HabitacionesList />},
+    {path: '/detalleReservaciones', element: <ReservacionesDetailsPage />},
     {path: '/*', element: <DashboardPages /> }
     
 ]

@@ -94,7 +94,8 @@ export const Navbar = () => {
     { text: "Informes", icon: <InsertChartIcon />, path: "/informes", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Eventos Lista", icon: <EventIcon />, path: "/eventos-lista", roles: ["USER"] },
     { text: "Hoteles Lista", icon: <HotelIcon />, path: "/hoteles-lista", roles: ["USER"] },
-    { text: "Habitaciones Lista", icon: <BedIcon />, path: "/habitaciones-lista", roles: ["USER"] }
+    { text: "Habitaciones Lista", icon: <BedIcon />, path: "/habitaciones-lista", roles: ["USER"] },
+    { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/detalleReservaciones", roles: ["ADMIN_HOTEL"] }
   ];
 
 
