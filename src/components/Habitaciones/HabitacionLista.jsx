@@ -15,8 +15,8 @@ const HabitacionesList = () => {
         handleGetHabitaciones();
     }, []);
 
-      const copiarAlPortapapeles = (id) => {
-        navigator.clipboard.writeText(id).then(() => {
+      const copiarAlPortapapeles = (uid) => {
+        navigator.clipboard.writeText(uid).then(() => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -86,7 +86,7 @@ const HabitacionesList = () => {
                                             <Tooltip title="Copiar ID">
                                                 <IconButton 
                                                     className="copy-button" 
-                                                    onClick={() => copiarAlPortapapeles(room._id)}
+                                                    onClick={() => copiarAlPortapapeles(room.uid)}
                                                 >
                                                     <ContentCopyIcon className="copy-icon" />
                                                 </IconButton>

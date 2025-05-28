@@ -15,12 +15,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useUserDetails } from "../../shared/hooks";
-import { IoHome } from "react-icons/io5";
-import { FaUserGear, FaHotel } from "react-icons/fa6";
-import { ImExit } from "react-icons/im";
-import { ImEnter } from "react-icons/im";
 
-// Icons
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -41,10 +36,10 @@ const gradientAnimation = keyframes`
 `;
 
 const StyledAppBar = styled(AppBar)({
-  background: 'linear-gradient(45deg, #1976d2 30%, #2196f3 90%)',
+  background: 'linear-gradient(45deg,rgb(4, 4, 4) 30%,rgb(224, 124, 18) 90%)',
   backgroundSize: '400% 400%',
   animation: `${gradientAnimation} 10s ease infinite`,
-  boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+  boxShadow: '0 4px 20px rgba(9, 200, 25, 0.1)',
   borderRadius: '0 0 15px 15px'
 });
 
@@ -88,7 +83,7 @@ export const Navbar = () => {
   const drawerItems = [
     { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Eventos", icon: <EventIcon />, path: "/eventos", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
-    { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/reservaciones", roles: ["USER"] },
+    { text: "Reservaciones Existentes", icon: <ReceiptLongIcon />, path: "/reservaciones", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Facturas", icon: <ReceiptLongIcon />, path: "/facturas", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Hoteles", icon: <HotelIcon />, path: "/hoteles", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Informes", icon: <InsertChartIcon />, path: "/informes", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
@@ -96,7 +91,7 @@ export const Navbar = () => {
     { text: "Hoteles Lista", icon: <HotelIcon />, path: "/hoteles-lista", roles: ["USER"] },
     { text: "Habitaciones Lista", icon: <BedIcon />, path: "/habitaciones-lista", roles: ["USER"] },
     { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/detalleReservaciones", roles: ["ADMIN_HOTEL"] },
-    { text: "Ver mis Reservaciones", icon: <ReceiptLongIcon />, path: "/reservacionesUser", roles: ["USER"] }
+    { text: "Reservar", icon: <ReceiptLongIcon />, path: "/reservacionesUser", roles: ["USER"] }
   ];
 
 
@@ -206,7 +201,7 @@ export const Navbar = () => {
         PaperProps={{
           sx: {
             width: 280,
-            background: 'linear-gradient(195deg, #f8f9fa 30%, #ffffff 90%)',
+            background: 'linear-gradient(195deg,rgb(231, 231, 231) 30%,rgb(211, 13, 255) 90%)',
             borderRadius: '0 15px 15px 0'
           }
         }}
@@ -216,7 +211,7 @@ export const Navbar = () => {
           role="presentation"
           onKeyDown={toggleDrawer(false)}
         >
-          <Box sx={{ p: 3, textAlign: 'center', borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
+          <Box sx={{ p: 3, textAlign: 'center', borderBottom: '1px solid rgba(0, 0, 0, 0.1)' }}>
             <HotelIcon sx={{ fontSize: 40, color: 'primary.main', mb: 1 }} />
             <h3 style={{ margin: 0, color: '#1976d2' }}>Hotel Blind</h3>
           </Box>

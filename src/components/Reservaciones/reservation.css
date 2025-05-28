@@ -1,0 +1,249 @@
+/* Estilos generales del contenedor */
+.reservation-container {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.reservation-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Estilos para el título */
+.reservation-title {
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.reservation-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0d6efd, #6c5ce7);
+  border-radius: 2px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Campos del formulario */
+.reservation-form .form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.reservation-form .form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+.reservation-form .form-control {
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  border: 2px solid #e9ecef !important;
+  transition: all 0.3s ease !important;
+  box-shadow: none !important;
+}
+
+.reservation-form .form-control:focus {
+  border-color: #0d6efd !important;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2) !important;
+}
+
+/* Iconos */
+.form-icon {
+  font-size: 1.1em;
+  transition: transform 0.3s ease;
+}
+
+.form-group:hover .form-icon {
+  transform: scale(1.1);
+}
+
+/* Botones */
+.reservation-btn {
+  border-radius: 50px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+}
+
+.reservation-btn-primary {
+  background: linear-gradient(135deg, #0d6efd, #0b5ed7) !important;
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3) !important;
+}
+
+.reservation-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 7px 20px rgba(13, 110, 253, 0.4) !important;
+}
+
+.reservation-btn-primary:active {
+  transform: translateY(0) !important;
+}
+
+.reservation-btn-secondary {
+  background: linear-gradient(135deg, #6c757d, #5a6268) !important;
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3) !important;
+}
+
+.reservation-btn-secondary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 7px 20px rgba(108, 117, 125, 0.4) !important;
+}
+
+/* Mensajes de error */
+.invalid-feedback {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  padding: 6px 10px;
+  background-color: #fff5f5;
+  border-radius: 6px;
+  border-left: 3px solid #dc3545;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+/* Efecto de onda en botones */
+.btn-wave-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-wave-effect:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.btn-wave-effect:focus:not(:active):after {
+  animation: wave 0.6s ease-out;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+/* reservaciones.css */
+.reservacion-item {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.reservacion-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.reservacion-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.reservacion-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+.reservacion-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reservacion-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+.hotel-icon {
+    color: #0d6efd;
+    margin-right: 8px;
+}
+
+.reservacion-detail {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 8px;
+}
+
+.reservacion-detail:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.btn-action {
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+}
+
+.empty-state {
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

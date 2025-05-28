@@ -1,10 +1,129 @@
-.aña {
-    transform: translateY(-2%);
+
+/* informes.css */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.aña1 {
-    transform: translateY(-1300%);
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
 
+.informes-container {
+  animation: fadeIn 0.6s ease;
+}
 
+.title-container {
+  position: relative;
+  margin-bottom: 32px;
+}
 
+.title-container::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #1976d2, #4caf50);
+  border-radius: 2px;
+}
+
+.hotel-selector {
+  transition: all 0.3s ease;
+}
+
+.hotel-selector:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card {
+  transition: all 0.3s ease;
+  border-left: 4px solid #1976d2 !important;
+}
+
+.chart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.detail-card {
+  transition: all 0.3s ease;
+  border-left: 4px solid #4caf50 !important;
+  height: 100%;
+}
+
+.detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.reservacion-item {
+  animation: fadeIn 0.5s ease;
+}
+
+.reservacion-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.reservacion-icon {
+  margin-right: 8px;
+  color: #1976d2;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.detail-icon {
+  margin-right: 8px;
+  color: #757575;
+  font-size: 18px !important;
+}
+
+.habitaciones-list, .eventos-list {
+  margin-left: 24px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.list-icon {
+  margin-right: 8px;
+  color: #9e9e9e;
+  font-size: 16px !important;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+.empty-icon {
+  font-size: 48px !important;
+  margin-bottom: 16px;
+  color: #bdbdbd;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  animation: fadeIn 0.4s ease;
+}

@@ -5,13 +5,28 @@ import {
     validatePassword
 } from '../../shared/validators';
 import { useLogin } from "../../shared/hooks";
-import { FaUserTie } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import {
+  Box,
+  Button,
+  Divider,
+  Typography,
+  Avatar,
+  IconButton,
+  InputAdornment
+} from '@mui/material';
+import {
+  Person as PersonIcon,
+  Lock as LockIcon,
+  Email as EmailIcon,
+  Visibility,
+  VisibilityOff
+} from '@mui/icons-material';
 import "./Login.css";
 
 export const Login = ({ switchAuthHandler }) => {
-
     const { login, isLoading } = useLogin();
+    const [showPassword, setShowPassword] = useState(false);
 
     const [formState, setFormState] = useState({
         usernameOrEmail: {
@@ -26,7 +41,7 @@ export const Login = ({ switchAuthHandler }) => {
             showError: false,
             validationMessage: ''
         }
-    })
+    });
 
     const handleInputValueChange = (value, field) => {
         setFormState((prevState) => ({
@@ -35,8 +50,8 @@ export const Login = ({ switchAuthHandler }) => {
                 ...prevState[field],
                 value
             }
-        }))
-    }
+        }));
+    };
 
     const handleInputValidationOnBlur = (value, field) => {
         let result = { isValid: false, message: '' };
@@ -60,75 +75,114 @@ export const Login = ({ switchAuthHandler }) => {
                 validationMessage: result.message
             }
         }));
-    }
+    };
 
     const handleLogin = (event) => {
         event.preventDefault();
         login(formState.usernameOrEmail.value, formState.password.value);
-    }
+    };
+
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
 
     const isSubmitButtonDisable = isLoading ||
         !formState.usernameOrEmail.isValid ||
         !formState.password.isValid;
 
     return (
-        <div className="d-flex justify-content-center align-items-center vh-100 login-background">
-            <div
-                className="login-form p-4 rounded"
-                style={{
-                    position: "static",
-                    display: "block",
-                    backgroundColor: "rgba(0, 0, 0, 0.6)",
-                    color: "white",
-                    width: "100%",
-                    maxWidth: "400px"
-                }}
-            >
-                <form className="auth-form" onSubmit={handleLogin} noValidate>
-                    <img src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" className="user-image" alt="User Icon" />
+        <div className="login-background">
+            <Box className="login-container">
+                <Box className="login-form">
+                    <Box className="user-image-container">
+                        <Avatar
+                            src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png"
+                            alt="User Icon"
+                            sx={{
+                                width: 100,
+                                height: 100,
+                                margin: '0 auto',
+                                border: '3px solid white'
+                            }}
+                        />
+                    </Box>
 
-                    <h3 className="text-center mb-4">Iniciar sesión</h3>
-                    <br />
-                    <Input
-                        field="usernameOrEmail"
-                        label="Correo o Nombre de usuario"
-                        value={formState.usernameOrEmail.value}
-                        onChangeHandler={handleInputValueChange}
-                        type="text"
-                        onBlurHandler={handleInputValidationOnBlur}
-                        showErrorMessage={formState.usernameOrEmail.showError}
-                        validationMessage={formState.usernameOrEmail.validationMessage}
-                        icon={FaUserTie}
-                    />
-                    <br />
-                    <br />
-                    <Input
-                        field="password"
-                        label="Contraseña"
-                        placeholder="Haz clic en el candado para mostrar"
-                        value={formState.password.value}
-                        onChangeHandler={handleInputValueChange}
-                        type="password"
-                        onBlurHandler={handleInputValidationOnBlur}
-                        showErrorMessage={formState.password.showError}
-                        validationMessage={formState.password.validationMessage}
-                    />
-                    <br />
-                    <button
-                        type="submit"
-                        className="btn btn-primary w-100"
-                        disabled={isSubmitButtonDisable}
-                    >
+                    <Typography variant="h4" className="login-title">
                         Iniciar sesión
-                    </button>
-                </form>
+                    </Typography>
 
-                <hr style={{ background: 'black' }} />
+                    <form className="auth-form" onSubmit={handleLogin} noValidate>
+                        <Input
+                            field="usernameOrEmail"
+                            label="Correo o Nombre de usuario"
+                            value={formState.usernameOrEmail.value}
+                            onChangeHandler={handleInputValueChange}
+                            type="text"
+                            onBlurHandler={handleInputValidationOnBlur}
+                            showErrorMessage={formState.usernameOrEmail.showError}
+                            validationMessage={formState.usernameOrEmail.validationMessage}
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    {formState.usernameOrEmail.value.includes('@') ? (
+                                        <EmailIcon className="input-icon" />
+                                    ) : (
+                                        <PersonIcon className="input-icon" />
+                                    )}
+                                </InputAdornment>
+                            }
+                            className="input-field"
+                        />
 
-                <span onClick={switchAuthHandler} className="auth-form-switch-label">
-                    Don't have an account? Sign up
-                </span>
-            </div>
+                        <Input
+                            field="password"
+                            label="Contraseña"
+                            value={formState.password.value}
+                            onChangeHandler={handleInputValueChange}
+                            type={showPassword ? 'text' : 'password'}
+                            onBlurHandler={handleInputValidationOnBlur}
+                            showErrorMessage={formState.password.showError}
+                            validationMessage={formState.password.validationMessage}
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <LockIcon className="input-icon" />
+                                </InputAdornment>
+                            }
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        onClick={handleClickShowPassword}
+                                        edge="end"
+                                    >
+                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                            className="input-field"
+                        />
+
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            fullWidth
+                            className="submit-button"
+                            disabled={isSubmitButtonDisable}
+                            size="large"
+                        >
+                            {isLoading ? 'Cargando...' : 'Iniciar sesión'}
+                        </Button>
+                    </form>
+
+                    <Divider className="divider" />
+
+                    <Typography 
+                        variant="body2" 
+                        className="auth-form-switch-label"
+                        onClick={switchAuthHandler}
+                    >
+                        ¿No tienes una cuenta? Regístrate
+                    </Typography>
+                </Box>
+            </Box>
         </div>
-    )
-}
+    );
+};

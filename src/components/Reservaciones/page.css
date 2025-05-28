@@ -1,0 +1,133 @@
+/* reservaciones.css */
+.reservaciones-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #0d6efd transparent;
+}
+
+.reservaciones-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reservaciones-container::-webkit-scrollbar-thumb {
+  background-color: #0d6efd;
+  border-radius: 4px;
+}
+
+.reservacion-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: none !important;
+  border-left: 4px solid #0d6efd !important;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.reservacion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.reservacion-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 12px 16px;
+}
+
+.reservacion-body {
+  padding: 16px;
+}
+
+.reservacion-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.reservacion-detail:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detail-icon {
+  margin-right: 12px;
+  color: #0d6efd;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.detail-content {
+  flex: 1;
+}
+
+.habitaciones-list, .eventos-list {
+  margin-left: 36px;
+  margin-top: 8px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.list-icon {
+  margin-right: 8px;
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.empty-state {
+  animation: fadeIn 0.6s ease;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #adb5bd;
+}
+
+.loading-state {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+.title-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.title-container::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #0d6efd, #6f42c1);
+  border-radius: 3px;
+}
