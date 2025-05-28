@@ -85,13 +85,18 @@ export const Navbar = () => {
 
 
 
- const drawerItems = [
+  const drawerItems = [
     { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Eventos", icon: <EventIcon />, path: "/eventos", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/reservaciones", roles: ["USER"] },
     { text: "Facturas", icon: <ReceiptLongIcon />, path: "/facturas", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Hoteles", icon: <HotelIcon />, path: "/hoteles", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
-    { text: "Informes", icon: <InsertChartIcon />, path: "/informes", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] }
+    { text: "Informes", icon: <InsertChartIcon />, path: "/informes", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
+    { text: "Eventos Lista", icon: <EventIcon />, path: "/eventos-lista", roles: ["USER"] },
+    { text: "Hoteles Lista", icon: <HotelIcon />, path: "/hoteles-lista", roles: ["USER"] },
+    { text: "Habitaciones Lista", icon: <BedIcon />, path: "/habitaciones-lista", roles: ["USER"] },
+    { text: "Reservaciones", icon: <ReceiptLongIcon />, path: "/detalleReservaciones", roles: ["ADMIN_HOTEL"] },
+    { text: "Ver mis Reservaciones", icon: <ReceiptLongIcon />, path: "/reservacionesUser", roles: ["USER"] }
   ];
 
 
@@ -213,7 +218,7 @@ export const Navbar = () => {
         >
           <Box sx={{ p: 3, textAlign: 'center', borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
             <HotelIcon sx={{ fontSize: 40, color: 'primary.main', mb: 1 }} />
-            <h3 style={{ margin: 0, color: '#1976d2' }}>Hotel Dashboard</h3>
+            <h3 style={{ margin: 0, color: '#1976d2' }}>Hotel Blind</h3>
           </Box>
 
           <List sx={{ py: 2 }}>

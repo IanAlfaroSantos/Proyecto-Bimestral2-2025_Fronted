@@ -16,12 +16,12 @@ export const useHotel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const saveHotel = async (name, direccion, categoria, comodidades) => {
+  const saveHotel = async (name, direccion, categoria, comodidades, imagen) => {
     setIsLoading(true);
 
     try {
 
-      const hotelData = { name, direccion, categoria, comodidades }
+      const hotelData = { name, direccion, categoria, comodidades, imagen }
 
       await saveHotelRequest(hotelData);
 
@@ -51,6 +51,7 @@ export const useHotel = () => {
     try {
       const response = await getHotelesRequest();
       setHoteles(response.hoteles);
+      console.log(response.hoteles);
     } catch (error) {
       const backendError = error.response?.data;
 

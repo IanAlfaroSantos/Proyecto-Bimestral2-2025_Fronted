@@ -144,3 +144,7 @@ export const getHotelDemanda = async () => {
 export const getInformeReservaciones = async (id) => {
     return await apiClient.get(`/informes/reservaciones/${id}`);
 }
+
+export const getReservacionPorHotel = async (nombreHotel) => {
+    return await apiClient.get(`reservaciones/getReservacionPorHotel/${nombreHotel}`);
+}

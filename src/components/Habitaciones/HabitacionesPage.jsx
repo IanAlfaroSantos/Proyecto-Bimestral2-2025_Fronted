@@ -10,6 +10,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
+import ImageIcon from '@mui/icons-material/Image';
 import Navbar from "../navbars/Navbar.jsx";
 
 //import './habitaciones.css';
@@ -45,7 +46,8 @@ const HabitacionesPage = () => {
       type: "alta",
       quantity: 1,
       price: 1,
-      hotelName: ""
+      hotelName: "",
+      imagen: ""
     });
   };
   const [editData, setEditData] = useState(null)
@@ -169,6 +171,24 @@ const HabitacionesPage = () => {
             startAdornment: (
               <InputAdornment position="start">
                 <MonetizationOnIcon color="action" />
+              </InputAdornment>
+            ),
+          }}
+        />
+
+        <TextField
+          label= "Imagen"
+          name="imagen"
+          type="text"
+          value={formData.imagen}
+          onChange={handleChange}
+          required
+          fullWidth
+          size="small"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <ImageIcon color="action" />
               </InputAdornment>
             ),
           }}
