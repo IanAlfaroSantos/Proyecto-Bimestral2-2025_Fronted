@@ -25,7 +25,6 @@
 
 .register-container {
     background: rgba(255, 255, 255, 0.5);
-    width: 50vh;
     height: 80vh;
     overflow-y: auto;
     margin: 0 auto;
