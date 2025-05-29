@@ -10,27 +10,26 @@ import { Carousel } from 'bootstrap';
 
 export const DashboardPages = () => {
   useEffect(() => {
-  const carousel = new Carousel('#hotelCarousel', {
-    interval: 5000,
-    ride: 'carousel',
-    pause: 'hover'
-  });
+    const carousel = new Carousel('#hotelCarousel', {
+      interval: 5000,
+      ride: 'carousel',
+      pause: 'hover'
+    });
 
-  return () => carousel.dispose();
-}, []);
+    return () => carousel.dispose();
+  }, []);
   return (
     <>
       <Navbar />
-      
+
       <Box sx={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
-        {/* Carrusel Bootstrap */}
         <div id="hotelCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
           <div className="carousel-indicators">
             <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="0" className="active"></button>
             <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="1"></button>
             <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="2"></button>
           </div>
-          
+
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
@@ -44,7 +43,7 @@ export const DashboardPages = () => {
                 </Typography>
               </div>
             </div>
-            
+
             <div className="carousel-item">
               <img
                 src="https://wallpaperswide.com/download/luxury_hotel-wallpaper-1920x1080.jpg"
@@ -57,7 +56,7 @@ export const DashboardPages = () => {
                 </Typography>
               </div>
             </div>
-            
+
             <div className="carousel-item">
               <img
                 src="https://s1.1zoom.me/b5050/744/330559-moril_1920x1080.jpg"
@@ -71,7 +70,7 @@ export const DashboardPages = () => {
               </div>
             </div>
           </div>
-          
+
           <button
             className="carousel-control-prev"
             type="button"
@@ -92,7 +91,6 @@ export const DashboardPages = () => {
           </button>
         </div>
 
-        {/* Overlay oscuro */}
         <Box
           sx={{
             position: 'absolute',
@@ -105,17 +103,16 @@ export const DashboardPages = () => {
           }}
         />
 
-        {/* Contenido central */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
           className="hero-content"
         >
-          <Typography 
-            variant="h1" 
-            sx={{ 
-              fontWeight: 'bold', 
+          <Typography
+            variant="h1"
+            sx={{
+              fontWeight: 'bold',
               mb: 2,
               textShadow: '1px 2px 4px rgba(0, 37, 249, 0.8)',
               fontSize: { xs: '3.5rem', md: '3.2rem' }
@@ -124,15 +121,15 @@ export const DashboardPages = () => {
           >
             Bienvenido a Hoteleria Blind
           </Typography>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 1 }}
           >
-            <Typography 
-              variant="h5" 
-              sx={{ 
+            <Typography
+              variant="h5"
+              sx={{
                 mb: 4,
                 textShadow: '1px 1px 4px rgba(0, 42, 255, 0.8)',
                 fontSize: { xs: '1rem', md: '1.2rem' }
@@ -140,18 +137,18 @@ export const DashboardPages = () => {
             >
               Sistema de Gestión Hotelera con las mejores experiencias de Guatemala
             </Typography>
-            
+
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
-                variant="contained" 
-                color="black" 
+              <Button
+                variant="contained"
+                color="black"
                 size="large"
                 href="https://omnibees.com/es/marketing-pt/sistema-de-gestion-hotelera-por-que-necesitas-uno/"
-                  target="_blank" // Abre en una nueva pestaña
-                  rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
                   px: 4,
                   py: 1.5,
@@ -159,18 +156,17 @@ export const DashboardPages = () => {
                   fontWeight: 'bold',
                   boxShadow: '0 4px 20px rgba(5, 5, 5, 0.3)'
                 }}
-                
+
               >
                 Descubre Más
-                
+
               </Button>
-              
+
             </motion.div>
           </motion.div>
-          
+
         </motion.div>
 
-        {/* Texto informativo animado en la parte inferior */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { postHabitaciones,  updateHabitaciones, getHabitaciones, getHabitacionesByType } from "../../services/api";
+import { postHabitaciones, updateHabitaciones, getHabitaciones, getHabitacionesByType } from "../../services/api";
 import Swal from "sweetalert2";
-
 
 export const useHabitacion = () => {
     const [habitaciones, setHabitaciones] = useState([]);
     const [loading, setLoading] = useState(false);
-
 
     const handleGetHabitaciones = async () => {
         try {
@@ -58,11 +56,7 @@ export const useHabitacion = () => {
         }
     }
 
-   
-
-
-
-      const handleUpdateHabitaciones = async (id, data) => {
+    const handleUpdateHabitaciones = async (id, data) => {
         setLoading(true);
         try {
             const response = await updateHabitaciones(id, data);
@@ -87,9 +81,7 @@ export const useHabitacion = () => {
         } finally {
             setLoading(false);
         }
-    };
-
-   
+    }
 
     return {
         habitaciones,
@@ -98,5 +90,4 @@ export const useHabitacion = () => {
         handlePostHabitaciones,
         handleUpdateHabitaciones,
     }
-
 }

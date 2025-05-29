@@ -253,12 +253,12 @@ export const UserSettings = () => {
     return (
         <div className="user-settings-container">
             <div className="user-settings-form">
-                <img 
-                    src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" 
-                    className="user-image" 
-                    alt="User Icon" 
-                />
                 <form className="auth-form" autoComplete="on" onSubmit={handleFormSubmit}>
+                    <img
+                        src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png"
+                        className="user-image"
+                        alt="User Icon"
+                    />
                     {isDeleting ? (
                         <>
                             <h2>Confirm Account Deletion</h2>
@@ -288,15 +288,15 @@ export const UserSettings = () => {
                                 />
                             </div>
                             <div className="buttons-container">
-                                <button 
-                                    type="button" 
+                                <button
+                                    type="button"
                                     className="btn btn-danger"
                                     onClick={handleDeleteAccount}
                                 >
                                     Delete Account
                                 </button>
-                                <button 
-                                    type="button" 
+                                <button
+                                    type="button"
                                     className="btn btn-primary"
                                     onClick={handleCancelDelete}
                                 >
@@ -388,15 +388,15 @@ export const UserSettings = () => {
                                 />
                             </div>
                             <div className="buttons-container">
-                                <button 
-                                    type="submit" 
+                                <button
+                                    type="submit"
                                     className="btn btn-primary"
                                     disabled={isSubmitButtonDisabled}
                                 >
                                     {isFetching ? 'Updating...' : 'Update'}
                                 </button>
-                                <button 
-                                    type="button" 
+                                <button
+                                    type="button"
                                     className="btn btn-danger"
                                     onClick={handleDeleteClick}
                                 >

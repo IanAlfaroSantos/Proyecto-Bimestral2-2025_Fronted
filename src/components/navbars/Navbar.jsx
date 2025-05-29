@@ -78,14 +78,12 @@ export const Navbar = () => {
     setDrawerOpen(false);
   };
 
-
-
   const drawerItems = [
-    { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
-    { text: "Eventos", icon: <EventIcon />, path: "/eventos", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
+    { text: "Habitaciones", icon: <BedIcon />, path: "/habitaciones", roles: ["ADMIN_HOTEL"] },
+    { text: "Eventos", icon: <EventIcon />, path: "/eventos", roles: ["ADMIN_HOTEL"] },
     { text: "Reservaciones Existentes", icon: <ReceiptLongIcon />, path: "/reservaciones", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Facturas", icon: <ReceiptLongIcon />, path: "/facturas", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
-    { text: "Hoteles", icon: <HotelIcon />, path: "/hoteles", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
+    { text: "Hoteles", icon: <HotelIcon />, path: "/hoteles", roles: ["ADMIN_HOTEL"] },
     { text: "Informes", icon: <InsertChartIcon />, path: "/informes", roles: ["ADMIN_HOTEL", "ADMIN_WEB"] },
     { text: "Eventos Lista", icon: <EventIcon />, path: "/eventos-lista", roles: ["USER"] },
     { text: "Hoteles Lista", icon: <HotelIcon />, path: "/hoteles-lista", roles: ["USER"] },
@@ -94,11 +92,9 @@ export const Navbar = () => {
     { text: "Reservar", icon: <ReceiptLongIcon />, path: "/reservacionesUser", roles: ["USER"] }
   ];
 
-
   const filteredDrawerItems = drawerItems.filter((item) =>
     user?.role && item.roles.includes(user.role)
   );
-
 
   return (
     <>
@@ -126,37 +122,37 @@ export const Navbar = () => {
 
           <Box sx={{ display: "flex", gap: 2 }}>
             {user?.role === "USER" && (
-            <Tooltip title="Configuraciones">
-              <IconButton
-                color="inherit"
-                onClick={handleNavigate("/settings")}
-                sx={{
-                  '&:hover': {
-                    transform: 'rotate(15deg)',
-                    transition: 'transform 0.2s'
-                  }
-                }}
-              >
-                <SettingsIcon fontSize="medium" />
-              </IconButton>
-            </Tooltip>
+              <Tooltip title="Configuraciones">
+                <IconButton
+                  color="inherit"
+                  onClick={handleNavigate("/settings")}
+                  sx={{
+                    '&:hover': {
+                      transform: 'rotate(15deg)',
+                      transition: 'transform 0.2s'
+                    }
+                  }}
+                >
+                  <SettingsIcon fontSize="medium" />
+                </IconButton>
+              </Tooltip>
             )}
-            
+
             {user?.role === "ADMIN_WEB" && (
-            <Tooltip title="Gestión Usuarios">
-              <IconButton
-                color="inherit"
-                onClick={handleNavigate("/manager-users")}
-                sx={{
-                  '&:hover': {
-                    transform: 'rotate(15deg)',
-                    transition: 'transform 0.2s'
-                  }
-                }}
-              >
-                <SettingsIcon fontSize="medium" />
-              </IconButton>
-            </Tooltip>
+              <Tooltip title="Gestión Usuarios">
+                <IconButton
+                  color="inherit"
+                  onClick={handleNavigate("/manager-users")}
+                  sx={{
+                    '&:hover': {
+                      transform: 'rotate(15deg)',
+                      transition: 'transform 0.2s'
+                    }
+                  }}
+                >
+                  <SettingsIcon fontSize="medium" />
+                </IconButton>
+              </Tooltip>
             )}
 
             {!isLogged ? (
@@ -201,7 +197,7 @@ export const Navbar = () => {
         PaperProps={{
           sx: {
             width: 280,
-             background: 'linear-gradient(45deg,rgb(4, 4, 4) 30%,rgb(3, 33, 46) 90%)',
+            background: 'linear-gradient(45deg,rgb(4, 4, 4) 30%,rgb(3, 33, 46) 90%)',
             borderRadius: '0 15px 15px 0'
           }
         }}

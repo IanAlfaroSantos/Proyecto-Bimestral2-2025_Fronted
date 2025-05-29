@@ -18,14 +18,11 @@ import './page.css'
 const ReservacionesPage = () => {
   const { handleGetReservaciones, listaReservaciones, isLoading } = useReservaciones();
 
-
   useEffect(() => {
     handleGetReservaciones();
   }, []);
 
-  
-
-   return (
+  return (
     <div>
       <Navbar />
       <div className="container py-5">
@@ -56,7 +53,7 @@ const ReservacionesPage = () => {
                         {res.nombreUsuario?.name} {res.nombreUsuario?.surname}
                       </h5>
                     </div>
-                    
+
                     <div className="reservacion-body">
                       <div className="reservacion-detail">
                         <EmailIcon className="detail-icon" />
@@ -64,21 +61,21 @@ const ReservacionesPage = () => {
                           <strong>Email:</strong> {res.nombreUsuario?.email}
                         </div>
                       </div>
-                      
+
                       <div className="reservacion-detail">
                         <HotelIcon className="detail-icon" />
                         <div className="detail-content">
                           <strong>Hotel:</strong> {res.nombreHotel?.name}
                         </div>
                       </div>
-                      
+
                       <div className="reservacion-detail">
                         <BedIcon className="detail-icon" />
                         <div className="detail-content">
                           <strong>Habitaciones:</strong>
                         </div>
                       </div>
-                      
+
                       <div className="habitaciones-list">
                         {res.habitaciones.map((hab, i) => (
                           <div key={i} className="list-item">
@@ -89,14 +86,14 @@ const ReservacionesPage = () => {
                           </div>
                         ))}
                       </div>
-                      
+
                       <div className="reservacion-detail">
                         <EventIcon className="detail-icon" />
                         <div className="detail-content">
                           <strong>Eventos:</strong>
                         </div>
                       </div>
-                      
+
                       <div className="eventos-list">
                         {res.eventos.map((ev, i) => (
                           <div key={i} className="list-item">
@@ -105,7 +102,7 @@ const ReservacionesPage = () => {
                           </div>
                         ))}
                       </div>
-                      
+
                       <div className="reservacion-detail">
                         <TimeIcon className="detail-icon" />
                         <div className="detail-content">

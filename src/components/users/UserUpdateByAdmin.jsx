@@ -101,7 +101,7 @@ const UsersPage = () => {
             });
             return;
         }
-        
+
         const passwordValidation = validatePasswordUpdate(editData.password);
         if (!passwordValidation.isValid) {
             Swal.fire({

@@ -5,24 +5,24 @@ import {
     validatePassword
 } from '../../shared/validators';
 import { useLogin } from "../../shared/hooks";
-import { 
-  Box, 
-  Typography, 
-  Button, 
-  Divider, 
-  Avatar, 
-  InputAdornment, 
-  IconButton,
-  Alert,
-  Snackbar,
-  Fade
+import {
+    Box,
+    Typography,
+    Button,
+    Divider,
+    Avatar,
+    InputAdornment,
+    IconButton,
+    Alert,
+    Snackbar,
+    Fade
 } from '@mui/material';
-import { 
-  Email as EmailIcon, 
-  Person as PersonIcon, 
-  Lock as LockIcon,
-  Visibility,
-  VisibilityOff
+import {
+    Email as EmailIcon,
+    Person as PersonIcon,
+    Lock as LockIcon,
+    Visibility,
+    VisibilityOff
 } from '@mui/icons-material';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -54,18 +54,16 @@ export const Login = ({ switchAuthHandler }) => {
             [field]: {
                 ...formState[field],
                 value,
-                showError: false // Reset error on change
+                showError: false
             }
         };
-        
-        // Real-time validation for email/username
+
         if (field === 'usernameOrEmail' && value.length > 3) {
             const result = validateUsernameOrEmail(value);
             newState[field].isValid = result.isValid;
             newState[field].validationMessage = result.message;
         }
-        
-        // Real-time validation for password (only if length > 0)
+
         if (field === 'password' && value.length > 0) {
             const result = validatePassword(value);
             newState[field].isValid = result.isValid;
@@ -101,11 +99,10 @@ export const Login = ({ switchAuthHandler }) => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        
-        // Validate all fields before submit
+
         const usernameValidation = validateUsernameOrEmail(formState.usernameOrEmail.value);
         const passwordValidation = validatePassword(formState.password.value);
-        
+
         if (!usernameValidation.isValid || !passwordValidation.isValid) {
             setFormState({
                 usernameOrEmail: {
@@ -144,37 +141,34 @@ export const Login = ({ switchAuthHandler }) => {
 
     return (
         <div className="login-container-wrapper">
-            {/* Carrusel de fondo */}
             <div id="loginCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img 
-                            src="https://wallpapers.com/images/hd/scenic-tropical-beach-sunset-desktop-3k00t2qh8hb64xtu.jpg" 
-                            className="d-block w-100" 
+                        <img
+                            src="https://wallpapers.com/images/hd/scenic-tropical-beach-sunset-desktop-3k00t2qh8hb64xtu.jpg"
+                            className="d-block w-100"
                             alt="Beach Sunset"
                         />
                     </div>
                     <div className="carousel-item">
-                        <img 
-                            src="https://wallpapers.com/images/hd/palm-trees-beach-palmera-playa-aklrztsznqi41g5w.jpg" 
-                            className="d-block w-100" 
+                        <img
+                            src="https://wallpapers.com/images/hd/palm-trees-beach-palmera-playa-aklrztsznqi41g5w.jpg"
+                            className="d-block w-100"
                             alt="River Sunset"
                         />
                     </div>
                     <div className="carousel-item">
-                        <img 
-                            src="https://fondosmil.co/fondo/33596.jpg" 
-                            className="d-block w-100" 
+                        <img
+                            src="https://fondosmil.co/fondo/33596.jpg"
+                            className="d-block w-100"
                             alt="Mountain View"
                         />
                     </div>
                 </div>
             </div>
 
-            {/* Overlay oscuro */}
             <div className="login-overlay"></div>
 
-            {/* Formulario de login */}
             <Fade in={true} timeout={800}>
                 <Box className="login-form-container">
                     <Box className="login-form">
@@ -258,8 +252,8 @@ export const Login = ({ switchAuthHandler }) => {
 
                         <Divider className="divider" />
 
-                        <Typography 
-                            variant="body2" 
+                        <Typography
+                            variant="body2"
                             className="auth-form-switch-label"
                             onClick={switchAuthHandler}
                         >
@@ -268,25 +262,6 @@ export const Login = ({ switchAuthHandler }) => {
                     </Box>
                 </Box>
             </Fade>
-
-            {/* Snackbar para errores */}
-            <Snackbar
-                open={openSnackbar}
-                autoHideDuration={6000}
-                onClose={handleCloseSnackbar}
-                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-            >
-                <Alert 
-                    severity="error" 
-                    variant="filled"
-                    onClose={handleCloseSnackbar}
-                    sx={{ width: '100%' }}
-                >
-                    {error || 'Credenciales incorrectas. Por favor, inténtalo de nuevo.'}
-                </Alert>
-            </Snackbar>
         </div>
-    );
-};
-
-// Funciones de validación (puedes moverlas a un archivo aparte)
+    )
+}

@@ -10,25 +10,25 @@ import {
     validateConfirPassword
 } from '../../shared/validators';
 import { useRegister } from '../../shared/hooks';
-import { 
-  Box, 
-  Typography, 
-  Button, 
-  Divider, 
-  Avatar, 
-  InputAdornment, 
-  IconButton,
-  Slide,
-  Fade
+import {
+    Box,
+    Typography,
+    Button,
+    Divider,
+    Avatar,
+    InputAdornment,
+    IconButton,
+    Slide,
+    Fade
 } from '@mui/material';
-import { 
-  Email as EmailIcon, 
-  Person as PersonIcon, 
-  Lock as LockIcon,
-  Visibility,
-  VisibilityOff,
-  Phone as PhoneIcon,
-  Badge as NameIcon
+import {
+    Email as EmailIcon,
+    Person as PersonIcon,
+    Lock as LockIcon,
+    Visibility,
+    VisibilityOff,
+    Phone as PhoneIcon,
+    Badge as NameIcon
 } from '@mui/icons-material';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -168,23 +168,23 @@ export const Register = ({ switchAuthHandler }) => {
             <div id="registerCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img 
-                            src="https://wallpapers.com/images/hd/palm-trees-beach-palmera-playa-aklrztsznqi41g5w.jpg" 
-                            className="d-block w-100" 
+                        <img
+                            src="https://wallpapers.com/images/hd/palm-trees-beach-palmera-playa-aklrztsznqi41g5w.jpg"
+                            className="d-block w-100"
                             alt="Palm Beach"
                         />
                     </div>
                     <div className="carousel-item">
-                        <img 
-                            src="https://fondosmil.co/fondo/33596.jpg" 
-                            className="d-block w-100" 
+                        <img
+                            src="https://fondosmil.co/fondo/33596.jpg"
+                            className="d-block w-100"
                             alt="Mountain View"
                         />
                     </div>
                     <div className="carousel-item">
-                        <img 
-                            src="https://wallpapers.com/images/hd/scenic-tropical-beach-sunset-desktop-3k00t2qh8hb64xtu.jpg" 
-                            className="d-block w-100" 
+                        <img
+                            src="https://wallpapers.com/images/hd/scenic-tropical-beach-sunset-desktop-3k00t2qh8hb64xtu.jpg"
+                            className="d-block w-100"
                             alt="Beach Sunset"
                         />
                     </div>
@@ -372,8 +372,8 @@ export const Register = ({ switchAuthHandler }) => {
 
                                 <Divider className="divider" />
 
-                                <Typography 
-                                    variant="body2" 
+                                <Typography
+                                    variant="body2"
                                     className="auth-form-switch-label"
                                     onClick={switchAuthHandler}
                                 >

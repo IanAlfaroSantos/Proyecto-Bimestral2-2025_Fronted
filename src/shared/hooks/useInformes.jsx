@@ -1,8 +1,7 @@
-    import { useState } from "react";
-    import { getHotelDemanda, getInformeReservaciones } from "../../services/api";
+import { useState } from "react";
+import { getHotelDemanda, getInformeReservaciones } from "../../services/api";
 
-
-    export const useInformes = () => {
+export const useInformes = () => {
     const [demanda, setDemanda] = useState([]);
     const [reservaciones, setReservaciones] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -10,31 +9,31 @@
 
     const fetchDemandaHoteles = async () => {
         try {
-        setLoading(true);
-        setError(null);
-        const response = await getHotelDemanda();
-        console.log(response.data)
-        setDemanda(response.data.estadisticas || []);
+            setLoading(true);
+            setError(null);
+            const response = await getHotelDemanda();
+            console.log(response.data)
+            setDemanda(response.data.estadisticas || []);
         } catch (err) {
-        setError(err.message || "Error al obtener demanda de hoteles");
+            setError(err.message || "Error al obtener demanda de hoteles");
         } finally {
-        setLoading(false);
+            setLoading(false);
         }
-    };
+    }
 
     const fetchReservacionesPorHotel = async (id) => {
         try {
-        setLoading(true);
-        setError(null);
-        const response = await getInformeReservaciones(id);
-        console.log(response.data)
-        setReservaciones(response.data);
+            setLoading(true);
+            setError(null);
+            const response = await getInformeReservaciones(id);
+            console.log(response.data)
+            setReservaciones(response.data);
         } catch (err) {
-        setError(err.message || "Error al obtener reservaciones por hotel");
+            setError(err.message || "Error al obtener reservaciones por hotel");
         } finally {
-        setLoading(false);
+            setLoading(false);
         }
-    };
+    }
 
     return {
         demanda,
@@ -43,5 +42,5 @@
         error,
         fetchDemandaHoteles,
         fetchReservacionesPorHotel,
-    };
-    };
+    }
+}

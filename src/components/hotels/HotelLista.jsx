@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../navbars/Navbar';
 import { useHotel } from '../../shared/hooks';
 import {
@@ -10,7 +10,7 @@ import {
     CheckCircle as ActiveIcon,
     Cancel as InactiveIcon
 } from '@mui/icons-material';
-import './hotelLista.css'; // Crea este archivo CSS
+import './hotelLista.css';
 
 const HotelLista = () => {
     const { hoteles, isLoading, error, getHoteles } = useHotel();
@@ -41,18 +41,18 @@ const HotelLista = () => {
                                         <span>{hotel.categoria}</span>
                                     </span>
                                 </div>
-                                
+
                                 <div className="card-content">
                                     <h3 className="hotel-title">
                                         <HotelIcon className="icon" /> {hotel.name}
                                     </h3>
-                                    
+
                                     <div className="hotel-info">
                                         <p className="info-item">
                                             <LocationIcon className="icon text-danger" />
                                             <span>{hotel.direccion}</span>
                                         </p>
-                                        
+
                                         <div className="disponibilidad-container">
                                             <div className="disponibilidad-item">
                                                 <BedIcon className="icon" />
@@ -66,7 +66,7 @@ const HotelLista = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div className={`status-alert ${hotel.status ? 'active' : 'inactive'}`}>
                                         {hotel.status ? (
                                             <>
@@ -80,7 +80,7 @@ const HotelLista = () => {
                                             </>
                                         )}
                                     </div>
-                                    
+
                                     <div className="card-footer">
                                         <small>Actualizado: {new Date(hotel.updatedAt).toLocaleDateString()}</small>
                                     </div>

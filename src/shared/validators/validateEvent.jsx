@@ -1,4 +1,3 @@
-// shared/validations/validateEvent.js
 export const validateEvento = (evento) => {
     const errors = {};
 

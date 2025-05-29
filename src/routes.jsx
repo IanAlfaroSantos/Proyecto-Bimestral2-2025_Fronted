@@ -17,121 +17,119 @@ import ProtectedRoute from './ProtectedRoute.jsx';
 
 const routes = [
     { path: 'auth', element: <Auth /> },
-    
-    { 
-        path: '/settings', 
+
+    {
+        path: '/settings',
         element: (
             <ProtectedRoute roles={['USER']}>
                 <UserSettingsUpdate />
             </ProtectedRoute>
-        ) 
+        )
     },
-    { 
-        path: '/hoteles', 
+    {
+        path: '/hoteles',
         element: (
-            <ProtectedRoute roles={['ADMIN_HOTEL', 'ADMIN_WEB']}>
+            <ProtectedRoute roles={['ADMIN_HOTEL']}>
                 <HotelesPage />
             </ProtectedRoute>
-        ) 
+        )
     },
-    { 
-        path: '/manager-users', 
+    {
+        path: '/manager-users',
         element: (
             <ProtectedRoute roles={['ADMIN_WEB']}>
                 <UsersPage />
             </ProtectedRoute>
-        ) 
+        )
     },
-    { 
-        path: '/habitaciones', 
+    {
+        path: '/habitaciones',
         element: (
-            <ProtectedRoute roles={['ADMIN_HOTEL', 'ADMIN_WEB']}>
+            <ProtectedRoute roles={['ADMIN_HOTEL']}>
                 <HabitacionesPage />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/eventos', 
+    {
+        path: '/eventos',
         element: (
-            <ProtectedRoute roles={['ADMIN_HOTEL', 'ADMIN_WEB']}>
+            <ProtectedRoute roles={['ADMIN_HOTEL']}>
                 <EventosPage />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/facturas', 
+    {
+        path: '/facturas',
         element: (
             <ProtectedRoute roles={['ADMIN_HOTEL', 'ADMIN_WEB']}>
                 <FacturasPage />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/reservaciones', 
+    {
+        path: '/reservaciones',
         element: (
             <ProtectedRoute roles={['ADMIN_HOTEL', 'ADMIN_WEB']}>
                 <ReservacionesPage />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/informes', 
+    {
+        path: '/informes',
         element: (
             <ProtectedRoute roles={['ADMIN_HOTEL', 'ADMIN_WEB']}>
                 <InformesPage />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/eventos-lista', 
+    {
+        path: '/eventos-lista',
         element: (
             <ProtectedRoute roles={['USER']}>
                 <EventLista />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/hoteles-lista', 
+    {
+        path: '/hoteles-lista',
         element: (
             <ProtectedRoute roles={['USER']}>
                 <HotelLista />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/habitaciones-lista', 
+    {
+        path: '/habitaciones-lista',
         element: (
             <ProtectedRoute roles={['USER']}>
                 <HabitacionesList />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/detalleReservaciones', 
+    {
+        path: '/detalleReservaciones',
         element: (
             <ProtectedRoute roles={['ADMIN_HOTEL']}>
                 <ReservacionesDetailsPage />
             </ProtectedRoute>
         )
     },
-    { 
-        path: '/reservacionesUser', 
+    {
+        path: '/reservacionesUser',
         element: (
             <ProtectedRoute roles={['USER']}>
                 <ReservacionesByUser />
             </ProtectedRoute>
         )
     },
-    
-
-    { 
-        path: '/*', 
+    {
+        path: '/*',
         element: (
             <ProtectedRoute>
                 <DashboardPages />
             </ProtectedRoute>
-        ) 
+        )
     }
-];
+]
 
 export default routes;

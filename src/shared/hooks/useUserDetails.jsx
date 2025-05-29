@@ -16,10 +16,7 @@ export const useUserDetails = () => {
         const checkLogoutMessage = () => {
             const mostrar = localStorage.getItem('mostrar-mensaje');
             if (mostrar === 'true') {
-                // Limpiar inmediatamente para evitar bucles
                 localStorage.removeItem('mostrar-mensaje');
-                
-                // Mostrar mensaje solo si estamos en la página de auth
                 if (window.location.pathname === '/auth') {
                     Swal.fire({
                         icon: 'success',
@@ -27,17 +24,17 @@ export const useUserDetails = () => {
                         text: 'Sesión cerrada exitosamente!!',
                         timer: 3000,
                         showConfirmButton: false
-                    });
+                    })
                 }
             }
-        };
+        }
 
         checkLogoutMessage();
     }, []);
 
     const logout = () => {
         logoutHandler();
-        setUserDetails(null); // Actualizar estado inmediatamente
+        setUserDetails(null);
     }
 
     return {

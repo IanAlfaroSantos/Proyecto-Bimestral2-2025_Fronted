@@ -109,8 +109,8 @@ export const deleteReservacion = async (id) => {
     return await apiClient.delete(`reservaciones/deleteReservacion/${id}`);
 }
 
-export const postFactura = async (data) =>{
-    return await apiClient.post('facturas/',data);
+export const postFactura = async (data) => {
+    return await apiClient.post('facturas/', data);
 }
 
 export const getFactura = async () => {

@@ -242,21 +242,21 @@ const HotelesPage = () => {
                                     }}
                                 />
                                 <TextField
-                                label= "Imagen"
-                                name="imagen"
-                                type="text"
-                                value={formData.imagen}
-                                onChange={handleChange}
-                                required
-                                fullWidth
-                                size="small"
-                                InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <ImageIcon color="action" />
-                                        </InputAdornment>
-                                    ),
-                                }}
+                                    label="Imagen"
+                                    name="imagen"
+                                    type="text"
+                                    value={formData.imagen}
+                                    onChange={handleChange}
+                                    required
+                                    fullWidth
+                                    size="small"
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <ImageIcon color="action" />
+                                            </InputAdornment>
+                                        ),
+                                    }}
                                 />
 
                                 <Button
@@ -390,12 +390,12 @@ const HotelesPage = () => {
                                         fullWidth
                                         margin="normal"
                                         InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <HomeWorkIcon color="action" />
-                                            </InputAdornment>
-                                        )
-                                    }}
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <HomeWorkIcon color="action" />
+                                                </InputAdornment>
+                                            )
+                                        }}
                                     />
                                     <FormControl fullWidth>
                                         <InputLabel id="edit-categoria-label">Categoría</InputLabel>
@@ -423,12 +423,12 @@ const HotelesPage = () => {
                                         fullWidth
                                         margin="normal"
                                         InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <DryCleaningIcon color="action" />
-                                            </InputAdornment>
-                                        )
-                                    }}
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <DryCleaningIcon color="action" />
+                                                </InputAdornment>
+                                            )
+                                        }}
                                     />
                                 </DialogContent>
                                 <DialogActions>

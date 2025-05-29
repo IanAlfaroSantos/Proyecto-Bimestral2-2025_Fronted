@@ -16,7 +16,7 @@ export const useEventos = () => {
 
         try {
             const response = await postEvento(data);
-            
+
 
             if (response?.data?.success) {
                 setEvento(response.data.evento);
