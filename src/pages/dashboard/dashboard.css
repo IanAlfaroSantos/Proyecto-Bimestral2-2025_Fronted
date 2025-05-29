@@ -1,0 +1,109 @@
+/* Estilos para el carrusel */
+.carousel-image {
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.8);
+  transition: transform 10s ease;
+}
+
+.carousel-item.active .carousel-image {
+  transform: scale(1.05);
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 8px;
+  background-color: rgba(255,255,255,0.5);
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 8%;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  opacity: 1;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
+  background-size: 100% 100%;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
+}
+
+/* Estilos para el contenido */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem !important;
+}
+
+.caption-title {
+  font-weight: 600 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.info-box {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  max-width: 90%;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .info-box {
+    padding: 1rem;
+    bottom: 2%;
+  }
+}

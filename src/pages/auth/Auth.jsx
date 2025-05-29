@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Login } from "../../components/users/Login";
 import { Register } from "../../components/users/Register";
-import "./auth.css"
+
 
 export const Auth = () => {
 
@@ -11,7 +11,6 @@ export const Auth = () => {
         setIsLogin((prev) => !prev);
     }
     useEffect(() => {
-    // Limpiar cualquier estado residual al cargar la página de auth
     const user = localStorage.getItem('user');
     if (user) {
         localStorage.removeItem('user');

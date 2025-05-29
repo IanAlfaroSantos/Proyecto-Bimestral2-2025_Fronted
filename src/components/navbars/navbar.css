@@ -47,7 +47,7 @@
 
 /* Estilos compartidos */
 .animated-appbar {
-  background: linear-gradient(45deg, rgb(4, 4, 4) 30%, rgb(224, 124, 18) 90%);
+  background: linear-gradient(45deg, rgb(4, 4, 4) 30%, rgb(3, 33, 46) 90%);
   background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;
   box-shadow: 0 4px 20px rgba(9, 200, 25, 0.1);

@@ -36,7 +36,7 @@ const gradientAnimation = keyframes`
 `;
 
 const StyledAppBar = styled(AppBar)({
-  background: 'linear-gradient(45deg,rgb(4, 4, 4) 30%,rgb(224, 124, 18) 90%)',
+  background: 'linear-gradient(45deg,rgb(4, 4, 4) 30%,rgb(3, 33, 46) 90%)',
   backgroundSize: '400% 400%',
   animation: `${gradientAnimation} 10s ease infinite`,
   boxShadow: '0 4px 20px rgba(9, 200, 25, 0.1)',
@@ -201,7 +201,7 @@ export const Navbar = () => {
         PaperProps={{
           sx: {
             width: 280,
-            background: 'linear-gradient(195deg,rgb(231, 231, 231) 30%,rgb(211, 13, 255) 90%)',
+             background: 'linear-gradient(45deg,rgb(4, 4, 4) 30%,rgb(3, 33, 46) 90%)',
             borderRadius: '0 15px 15px 0'
           }
         }}

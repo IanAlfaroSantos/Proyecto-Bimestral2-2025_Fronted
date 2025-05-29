@@ -12,7 +12,7 @@ export const UserSettingsUpdate = () => {
     }
 
     return (
-        <div className="auth-container">
+        <div >
             <div className="dashboard-container">
                 <Navbar />
             </div>
