@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'https://proyecto-bimestral2-2025-production.up.railway.app/hoteles/',
+    baseURL: 'https://proyecto-bimestral2-2025.onrender.com/hoteles/',
     timeout: 5000
 })
 
